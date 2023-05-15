@@ -1,0 +1,274 @@
+.footer {
+    background-color: $secondColor;
+    color: $textColorLight;
+    padding: 8rem 0 4.8rem;
+
+    @media (max-width: $md2+px) {
+        padding: 5.6rem 0 3.2rem;
+    }
+
+    &__row-1 {
+        display: flex;
+        margin-bottom: 15.2rem;
+
+        @media (max-width: $md2+px) {
+            margin-bottom: 6.2rem;
+            flex-wrap: wrap;
+            gap: 5.6rem 0;
+
+            & .footer__col {
+                &:not(:last-child) {
+                    padding-right: 3.2rem;
+                }
+    
+                &:nth-child(1) {
+                    flex: 0 1 100%;
+                }
+                &:nth-child(2) {
+                    flex: 0 1 25%;
+                }
+                &:nth-child(3) {
+                    flex: 0 1 25%;
+                }
+                &:nth-child(4) {
+                    flex: 0 1 25%;
+                }
+                &:nth-child(5) {
+                    flex: 0 1 25%;
+                }
+            }
+        }
+
+        @media (max-width: $md3+px) {
+            gap: 5.6rem 2.4rem;
+
+            & .footer__col {
+                &:not(:last-child) {
+                    padding-right: 0;
+                }
+                &:nth-child(2) {
+                    flex: 0 1 calc(50% - 1.2rem);
+                }
+                &:nth-child(3) {
+                    flex: 0 1 calc(50% - 1.2rem);
+                }
+                &:nth-child(4) {
+                    flex: 0 1 calc(50% - 1.2rem);
+                }
+                &:nth-child(5) {
+                    flex: 0 1 calc(50% - 1.2rem);
+                }
+            }
+        }
+
+        @media (min-width: 992px) {
+            & .footer__col {
+                &:not(:last-child) {
+                    padding-right: 4rem;
+                }
+    
+                &:nth-child(1) {
+                    flex: 0 1 23.8%;
+                }
+                &:nth-child(2) {
+                    flex: 0 1 18.9%;
+                    margin-right: 5.9%;
+                    display: flex;
+                    justify-content: center;
+                }
+                &:nth-child(3) {
+                    flex: 0 1 17.5%;
+                }
+                &:nth-child(4) {
+                    flex: 0 1 17.5%;
+                }
+                &:nth-child(5) {
+                    flex: 0 1 16.4%;
+                }
+            }
+        }
+    }
+
+    &__col {
+    }
+
+    &__text {
+        font-weight: 600;
+        display: flex;
+        flex-direction: column;
+
+        & .footer__link {
+            align-self: start;
+        }
+    }
+
+    &__address {
+        text-indent: 10.8rem;
+
+        @media (max-width: $md2+px) {
+            text-indent: 7.6rem;
+        }
+    }
+
+    &__phone {
+    }
+
+    &__eamil {
+    }
+
+    &__link {
+        --border-width: 0.1rem;
+    }
+
+    &__list {
+        font-weight: 500;
+        font-size: 1.7rem;
+        line-height: 1.8em;
+        padding-left: 0;
+        margin-bottom: 0;
+
+        @media (max-width: $md2+px) {
+            font-size: 1.2rem;
+        }
+
+        & > li {
+            &:not(:last-child) {
+                margin-bottom: 2.4rem;
+
+                @media (max-width: $md2+px) {
+                    margin-bottom: 1.6rem;
+                }
+            }
+        }
+    }
+
+    &__row-2 {
+        margin-bottom: 38rem;
+
+        @media (max-width: $md2+px) {
+            margin-bottom: 18.6rem;
+        }
+
+        @media (max-width: $md3+px) {
+            margin-bottom: 12rem;
+        }
+    }
+
+    &__label {
+        text-align: center;
+        font-weight: 500;
+        font-size: 8rem;
+        line-height: 1em;
+        letter-spacing: -0.04em;
+
+        @media (max-width: $md2+px) {
+            font-size: 5.3rem;
+            max-width: 41rem;
+            margin: 0 auto;
+        }
+    }
+
+    &__row-3 {
+        @media (min-width: 992px) {
+            display: flex;
+            & .footer__col {
+                &:not(:last-child) {
+                    padding-right: 4rem;
+                }
+    
+                &:nth-child(1) {
+                    flex: 0 1 23.8%;
+                }
+                &:nth-child(2) {
+                    flex: 0 1 18.9%;
+                    margin-right: 5.9%;
+                }
+                &:nth-child(3) {
+                    flex: 0 1 17.5%;
+                }
+                &:nth-child(4) {
+                    flex: 0 1 17.5%;
+                }
+                &:nth-child(5) {
+                    flex: 0 1 16.4%;
+                }
+            }
+        }
+
+        @media (max-width: $md2+px) {
+            &.footer__col:nth-child(3), .footer__col:nth-child(4) {
+                margin-bottom: 1.6rem;
+            }
+        }
+
+    }
+
+    &__copy {
+        @media (max-width: $md2+px) {
+            margin-bottom: 2.4rem;
+        }
+    }
+
+    &__social {
+        @media (max-width: $md2+px) {
+            margin-bottom: 5.6rem;
+        }
+    }
+}
+
+
+.social {
+    padding-left: 0;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 6.4rem;
+
+    @media (max-width: $md2+px) {
+        gap: 4rem;
+    }
+
+    & a {
+        display: inline-block;
+        position: relative;
+
+        @media (min-width: 992px) {
+            &:hover {
+                color: $secondColor !important;
+
+                &:before {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1);
+                }
+
+                & img, & svg {
+                    transform: scale(1.1);
+                }
+            }
+        }
+        
+        &:before {
+            position: absolute;
+            z-index: 1;
+            content: '';
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 5.6rem;
+            height: 5.6rem;
+            background-color: $textColorLight;
+            border-radius: 50%;
+            transition: all .2s ease-in;
+            opacity: 0;
+        }
+    }
+
+    & img, & svg {
+        position: relative;
+        z-index: 2;
+        transition: transform .2s ease-in;
+        & path {
+            fill: currentColor;
+        }
+    }
+}

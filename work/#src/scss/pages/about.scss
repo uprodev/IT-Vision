@@ -1,0 +1,103 @@
+.about-head {
+    position: relative;
+    &__row-1 {
+        transition: transform var(--global-animation-duration) ease-in var(--global-animation-delay);
+        transform: translateY(5rem);
+    }
+
+    &__row-2 {
+        transition: transform var(--global-animation-duration) ease-in var(--global-animation-delay);
+        transform: translateY(5rem);
+
+        & .stats__list {
+            @media (min-width: 992px) {
+                gap: 8rem 12rem;
+            }
+        }
+    }
+
+    &__row-3 {
+    }
+
+    &__bottom-icon {
+        width: 11.1rem;
+        position: absolute;
+        bottom: 0;
+        right: 4.8rem;
+        transform: translateY(50%);
+
+        @media (max-width: $md1+px) {
+            right: 3.2rem;
+        }
+
+        @media (max-width: $md2+px) {
+            right: 2.4rem;
+            width: 7.4rem;
+        }
+
+        @media (max-width: $md3+px) {
+            display: none;
+        }
+
+        & img, & svg {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: transform var(--global-animation-duration) ease-in var(--global-animation-delay);
+            transform: translateY(5rem);
+        }
+    }
+}
+
+.page-loaded {
+    & .about-head__row-1, & .about-head__row-2, & .about-head__bottom-icon img, & .about-head__bottom-icon svg  {
+        transform: translateY(0);
+    }
+} 
+
+
+.abot-stack-of-tech {
+
+    &__body {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8rem 3.2rem;
+
+        @media (max-width: $md2+px) {
+            gap: 4.8rem 3.2rem;
+        }
+    }
+
+    &__col {
+        flex: 0 1 calc(25% - (3.2rem * 3) / 4);
+
+        @media (max-width: $md3+px) {
+            flex: 0 1 calc(50% - 1.6rem);
+        }
+    }
+
+    &__title-list {
+        font-weight: 600;
+        margin-bottom: 2.4rem;
+
+        @media (max-width: $md2+px) {
+            margin-bottom: 1.6rem;
+        }
+    }
+
+    &__list {
+        padding-left: 0;
+        margin-bottom: 0;
+        color: $textColorThird;
+
+        & > li {
+            &:not(:last-child) {
+                margin-bottom: 1.6rem;
+
+                @media (max-width: $md2+px) {
+                    margin-bottom: 1.1rem;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,149 @@
+.reviews {
+
+    &__title {
+        color: $textColorSecondary;
+    }
+
+    &__slider {
+        margin-bottom: 2.4rem;
+
+        @media (max-width: $md2+px) {
+            margin-bottom: 1.6rem;
+        }
+
+        & .swiper-slide {
+
+            transition: opacity .2s ease-in;
+            cursor: pointer;
+
+            @media (min-width: 992px) {
+                width: 65vw;
+            }
+
+            &:not(.swiper-slide-active) {
+                opacity: 0.2;
+                & .review-card__aughtor::before {
+                    width: 0;
+                }
+                @media (min-width: 992px) {
+                    &:hover {
+                        opacity: 0.5;
+                    }
+                }
+            }
+        }
+    }
+
+    &__bottom {
+        text-align: center;
+    }
+
+    &__btn-next {
+        display: inline-block;
+        overflow: hidden;
+        position: relative;
+        font-weight: 600;
+        font-size: 3rem;
+        line-height: 1.6em;
+        color: $textColorThird;
+        padding: 0.85rem 0 1.7rem;
+        transition: color .2s ease-in;
+    
+        @media (max-width: $md2+px) {
+            font-size: 2rem;
+            padding: 0.55rem 0 1.1rem;
+        }
+
+        @media (min-width: 992px) {
+            &:hover {
+                color: $hover;
+
+                & svg {
+                    transition: all .2s ease-in;
+                    transform: translateX(100%);
+
+                    &.second {
+                        right: 100%;
+                    }
+                }
+            }
+        }
+
+        & svg {
+            position: absolute;
+            width: 100%;
+            height: auto;
+            bottom: 0;
+            left: 0;
+            
+
+            &.second {
+                left: auto;
+                right: calc(100% + 0.5rem);
+            }
+        }
+    }
+}
+
+.review-card {
+
+    &__text {
+        margin-bottom: 4rem;
+
+        @media (max-width: $md2+px) {
+            margin-bottom: 2.4rem;
+        }
+    }
+
+    &__aughtor {
+        display: flex;
+        align-items: center;
+        padding-bottom: 4.8rem;
+        gap: 4rem;
+        position: relative;
+
+        @media (max-width: $md2+px) {
+            padding-bottom: 3.2rem;
+            gap: 2.4rem;
+        }
+
+        &:before {
+            position: absolute;
+            content: '';
+            left: 0;
+            bottom: 0;
+            height: 1px;
+            width: 22.8rem;
+            transition: all .2s ease-in .4s;
+            background-color: $textColorThird;
+
+            @media (max-width: $md2+px) {
+                width: 18rem;
+            }
+            @media (max-width: $md3+px) {
+                width: 8.2rem;
+            }
+        }
+    }
+
+    &__aughtor-letter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 0 auto;
+        width: 11rem;
+        height: 11rem;
+        border-radius: 50%;
+        background-color: $mainColor;
+        color: $textColorLight;
+
+        @media (max-width: $md2+px) {
+            width: 7.3rem;
+            height: 7.3rem;
+        }
+    }
+
+    &__aughtor-name {
+        color: $textColorSecondary;
+    }
+}

@@ -1,0 +1,176 @@
+.products {
+    position: relative;
+    overflow: hidden;
+
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    &__list {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-wrap: wrap;
+
+        @media (max-width: $md3+px) {
+            padding: 5.4rem 0;
+        }
+
+        @media (min-width: 992px) {
+            &:after {
+                position: absolute;
+                content: '';
+                left: 33.3333333%;
+                top: 0;
+                height: 100%;
+                width: 0.1rem;
+                display: block;
+                transform: translateX(50%);
+                background-color: #fff;
+                opacity: 0.1;
+            }
+            &:before {
+                position: absolute;
+                content: '';
+                left: 66.6666666%;
+                top: 0;
+                height: 100%;
+                width: 0.1rem;
+                display: block;
+                transform: translateX(50%);
+                background-color: #fff;
+                opacity: 0.1;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 992px) {
+            &:after {
+                position: absolute;
+                content: '';
+                left: 50%;
+                top: 0;
+                height: 100%;
+                width: 0.1rem;
+                display: block;
+                transform: translateX(50%);
+                background-color: #fff;
+                opacity: 0.1;
+            }
+        }
+    }
+
+    &__item {
+        flex: 0 1 33.3333333%;
+        position: relative;
+
+        @media (max-width: $md2+px) {
+            flex: 0 1 50%;
+        }
+
+        @media (max-width: $md3+px) {
+            flex: 0 1 100%;
+        }
+
+        &:before {
+            position: absolute;
+            content: '';
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.95);
+            display: block;
+            background-color: $mainColor;
+            transition: all .2s ease-in;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+
+        @media (min-width: 992px) {
+            &:hover {
+                &::before {
+                    transform: translate(-50%, -50%) scale(1);
+                    opacity: 1;
+                }
+
+                & .products__item-text {
+                    transform: translateY(0);
+                    opacity: 0.65;
+                }
+
+                & .products__item-title {
+                    color: $textColorLight !important;
+                    & > span {
+                        opacity: 0;
+                        transform: translateY(-100%);
+                    }
+        
+                    &::before {
+                        transform: translateY(-100%);
+                    }
+                }
+            }
+        }
+
+        @media (min-width: 768px) {
+            &:after {
+                position: absolute;
+                content: '';
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 0.1rem;
+                display: block;
+                transform: translateY(50%);
+                background-color: #fff;
+                opacity: 0.1;
+            }
+        }
+    }
+
+    &__item-body {
+        height: 40rem;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $textColorLight;
+
+        @media (max-width: $md2+px) {
+            height: 26.6rem;
+        }
+
+        @media (max-width: $md3+px) {
+            height: 9.3rem;
+        }
+    }
+
+    &__item-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        padding: 1.7rem 3rem;
+        opacity: 0.65;
+        transition: all .2s ease-in;
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+
+    &__item-title {
+        position: relative;
+        z-index: 2;
+        padding: 0 2rem;
+        color: $textColorLight;
+        
+        --border-width: 0.1rem;
+    }
+}

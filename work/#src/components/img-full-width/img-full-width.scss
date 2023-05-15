@@ -1,0 +1,17 @@
+.img-full-width {
+    overflow: hidden;
+    height: 100vh;
+
+    @media (max-width: $md2+px) {
+        height: 38.4rem;
+    }
+    &__inner {
+        top: 0;
+        height: calc(100% + 30rem);
+        transform: translateY(0%);
+
+        @media (max-width: $md3+px) {
+            height: calc(100% + 15rem);
+        }
+    }
+}

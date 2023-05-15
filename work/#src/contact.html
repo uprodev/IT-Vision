@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('_head.html',{
+"title": "IT-Vision"
+})
+
+<body>
+    <div class="_preload-body"></div>
+    <!-- == HEADER ================== -->
+    @@include('components/header/_header.html',{
+    "mod": ""
+    })
+    <!-- == // HEADER ================== -->
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <div class="pt-by-header-size"></div>
+            <main class="_page home-page">
+
+                <div class="parallax-cover-section" data-scroll-parallax-trigger>
+                    <div class="parallax-cover-section__inner" data-scroll-parallax="-15rem,top,0,bottom,200px"
+                        data-scroll-parallax-mob="-15rem,top,84px,bottom,210px,2">
+                        <div class="padding-wrap pt-0">
+                            <div class="pt-80 pt-md-120"></div>
+                            <section class="contact-head">
+                                <div class="contact-head__row-1 mb-104 mb-md-160">
+                                    <div class="container-second">
+                                        <div class="lg-text-section">
+                                            <div class="lg-text-section__label">
+                                                Contacts
+                                            </div>
+                                            <div
+                                                class="lg-text-section__text lg-text-section__text--indent text-content text-2">
+                                                <p>
+                                                    <strong>
+                                                        VisionLink GmbH. <br>
+                                                        Wächlenstrasse 5, 8832 Wollerau
+                                                    </strong>
+                                                    <br>
+                                                    <a href="#">+41 78 732 21 09</a> <br>
+                                                    <a href="#">hello@it-vision.ch</a>
+                                                </p>
+                                            </div>
+                                            <a href="#" class="btn" data-hover-text="Our work">
+                                                <span>
+                                                    Google Maps
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="contact-head__row-2">
+                                    <div class="container-second">
+                                        <h3 class="title-3 mb-48 mb-md-64">Social media:</h3>
+                                        <ul class="social-list text-2">
+                                            <li>
+                                                <a href="#" data-hover-text="LinkedIn">
+                                                    <span>LinkedIn</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" data-hover-text="Dribbble">
+                                                    <span>Dribbble</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" data-hover-text="Twitter">
+                                                    <span>Twitter</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" data-hover-text="Instagram">
+                                                    <span>Instagram</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" data-hover-text="Behance">
+                                                    <span>Behance</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" data-hover-text="Google">
+                                                    <span>Google</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="padding-wrap">
+                    <section class="map" id="map"></section>
+
+                    <script>
+                        function initMap() {
+                            map = new google.maps.Map(document.getElementById('map'), {
+                                center: { lat: 47.196689561857276, lng: 8.722947011753662 },
+
+                                zoom: 16,
+
+                                styles: [
+                                    {
+                                        "elementType": "geometry",
+                                        "stylers": [
+                                            {
+                                                "color": "#f5f5f5"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "elementType": "labels.icon",
+                                        "stylers": [
+                                            {
+                                                "visibility": "off"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "elementType": "labels.text.fill",
+                                        "stylers": [
+                                            {
+                                                "color": "#616161"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "elementType": "labels.text.stroke",
+                                        "stylers": [
+                                            {
+                                                "color": "#f5f5f5"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "featureType": "administrative.land_parcel",
+                                        "elementType": "labels.text.fill",
+                                        "stylers": [
+                                            {
+                                                "color": "#bdbdbd"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "featureType": "poi",
+                                        "elementType": "geometry",
+                                        "stylers": [
+                                            {
+                                                "color": "#eeeeee"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "featureType": "poi",
+                                        "elementType": "labels.text.fill",
+                                        "stylers": [
+                                            {
+                                                "color": "#757575"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "featureType": "poi.park",
+                                        "elementType": "geometry",
+                                        "stylers": [
+                                            {
+                                                "color": "#e5e5e5"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "featureType": "poi.park",
+                                        "elementType": "labels.text.fill",
+                                        "stylers": [
+                                            {
+                                                "color": "#9e9e9e"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "featureType": "road",
+                                        "elementType": "geometry",
+                                        "stylers": [
+                                            {
+                                                "color": "#ffffff"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "featureType": "road.arterial",
+                                        "elementType": "geometry.fill",
+                                        "stylers": [
+                                            {
+                                                "weight": 0.5
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "featureType": "road.arterial",
+                                        "elementType": "labels.text.fill",
+                                        "stylers": [
+                                            {
+                                                "color": "#757575"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "featureType": "road.highway",
+                                        "elementType": "geometry",
+                                        "stylers": [
+                                            {
+                                                "color": "#dadada"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "featureType": "road.highway",
+                                        "elementType": "geometry.fill",
+                                        "stylers": [
+                                            {
+                                                "color": "#ffffff"
+                                            },
+                                            {
+                                                "weight": 1.5
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "featureType": "road.highway",
+                                        "elementType": "geometry.stroke",
+                                        "stylers": [
+                                            {
+                                                "color": "#ffffff"
+                                            },
+                                            {
+                                                "weight": 3
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "featureType": "road.highway",
+                                        "elementType": "labels.text.fill",
+                                        "stylers": [
+                                            {
+                                                "color": "#616161"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "featureType": "road.local",
+                                        "elementType": "geometry.fill",
+                                        "stylers": [
+                                            {
+                                                "weight": 0.5
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "featureType": "road.local",
+                                        "elementType": "labels.text.fill",
+                                        "stylers": [
+                                            {
+                                                "color": "#9e9e9e"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "featureType": "transit.line",
+                                        "elementType": "geometry",
+                                        "stylers": [
+                                            {
+                                                "color": "#e5e5e5"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "featureType": "transit.line",
+                                        "elementType": "geometry.fill",
+                                        "stylers": [
+                                            {
+                                                "color": "#ffffff"
+                                            },
+                                            {
+                                                "weight": 1.5
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "featureType": "transit.station",
+                                        "elementType": "geometry",
+                                        "stylers": [
+                                            {
+                                                "color": "#eeeeee"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "featureType": "water",
+                                        "elementType": "geometry",
+                                        "stylers": [
+                                            {
+                                                "color": "#c9c9c9"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "featureType": "water",
+                                        "elementType": "geometry.fill",
+                                        "stylers": [
+                                            {
+                                                "color": "#c3cada"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "featureType": "water",
+                                        "elementType": "labels.text.fill",
+                                        "stylers": [
+                                            {
+                                                "color": "#9e9e9e"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            });
+
+                            var marker = new google.maps.Marker({
+                                position: { lat: 47.196689561857276, lng: 8.722947011753662 },
+                                map: map,
+                                title: 'IT-Vision',
+                                label: '',
+                                icon: 'img/icons/marker.svg',
+                            });
+
+                        }
+                    </script>
+                </div>
+
+                <div class="padding-wrap relative z-4">
+                    <div class="container-second">
+                        <section class="contact-form" data-contact-form>
+                            <div class="contact-form__main">
+                                <div class="contact-form__head mb-56 mb-md-80">
+                                    <div class="lg-text-section">
+                                        <div class="lg-text-section__label">
+                                            Hey
+                                        </div>
+                                        <div
+                                            class="lg-text-section__text text-content text-2">
+                                            <p>
+                                                <strong>
+                                                    Tell us all the things
+                                                </strong>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form  method="POST" accept-charset="UTF-8" id="contact-form">
+                                    <div class="contact-form__body form">
+                                        <div class="form__items">
+                                            <div class="form__item form__item--half">
+                                                <input type="text" name="name" class="input _required" placeholder="Name:">
+                                            </div>
+                                            <div class="form__item form__item--half">
+                                                <input type="email" name="email" class="input _required" placeholder="Email:">
+                                            </div>
+                                            <div class="form__item">
+                                                <textarea class="textarea _required" name="message" placeholder="Description:"></textarea>
+                                            </div>
+                                            <div class="form__item form__item--half">
+                                                <label class="file-input">
+                                                    <input type="file" name="file" class="_required" accept=".jpg, .pdf, .png">
+                                                    <div class="file-input__text">
+                                                        Upload
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form__bottom">
+                                            <button class="form__button">Get in Touch</button>
+                                            <div class="form__bottom-text text-4 font-weight-500 text-color-third">This site is protected by reCAPTCHA and the
+                                                Google Privacy Policy and apply.</div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="contact-form__messages">
+                                </div>
+                            </div>
+                            <div class="contact-form__result-of-submit success d-none">
+                                <div class="contact-form__result-of-submit-img ibg">
+                                    <img src="img/photo/success-img.jpg" alt="">
+                                </div>
+                                <div class="contact-form__result-of-submit-label text-4">Success</div>
+                                <div class="contact-form__result-of-submit-text text-2 font-weight-600">We will reach out to you <br> soon!</div>
+                            </div>
+                            <div class="contact-form__result-of-submit unsuccess d-none">
+                                <div class="contact-form__result-of-submit-img ibg">
+                                    <img src="img/photo/oops.jpg" alt="">
+                                </div>
+                                <div class="contact-form__result-of-submit-label text-4">Unsuccess</div>
+                                <div class="contact-form__result-of-submit-text text-2 font-weight-600">Something is wrong, <br> please try again later.</div>
+                            </div>
+
+                        </section>
+                            <script>
+                                const formContainer = document.querySelector('[data-contact-form]');
+                                const form = document.querySelector("#contact-form");
+                                const messagesContainer = formContainer.querySelector('.contact-form__messages');
+                                const requiredFields = form.querySelectorAll('._required');
+                                form.addEventListener("submit", formSubmit);
+
+                                const formInterface = {
+                                    name: {
+                                        errorMessages: {
+                                            empty: 'Write your name!',
+                                        }
+                                    },
+                                    email: {
+                                        errorMessages: {
+                                            empty: 'Write your email!',
+                                            invalid: 'Email is misspelled!'
+                                        }
+                                    },
+                                    message: {
+                                        errorMessages: {
+                                            empty: 'Write your message!',
+                                        }
+                                    },
+                                    file: {
+                                        errorMessages: {
+                                            empty: 'Upload your file!',
+                                        }
+                                    }
+                                }
+
+                                const loader = ((container) => {
+                                    let loader = document.createElement('div');
+                                    loader.className = 'loader';
+                                    loader.insertAdjacentHTML('beforeend', `
+                                        <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+                                    `);
+                                    return {
+                                        show: () => {
+                                            formContainer.prepend(loader);
+                                        },
+
+                                        hide: () => {
+                                            loader.remove();
+                                        }
+                                    }
+                                })();
+
+                                const validate = (formData, requiredFields) => {
+                                    if(requiredFields.length) {
+                                        let result = [];
+                                        requiredFields.forEach(field => {
+                                            if(field.type === 'email') {
+                                                const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+
+                                                let fieldData = {
+                                                    el: field,
+                                                    name: field.name,
+                                                }
+                                                if(!formData.get(field.name).length) {
+                                                    fieldData.isCorrect = false;
+                                                    fieldData.errorMessage = formInterface[field.name].errorMessages.empty;
+                                                } else if(!EMAIL_REGEXP.test(formData.get(field.name))) {
+                                                    fieldData.isCorrect = false;
+                                                    fieldData.errorMessage = formInterface[field.name].errorMessages.invalid;
+                                                } else {
+                                                    fieldData.isCorrect = true;
+                                                }
+                                                result.push(fieldData);
+                                            }
+
+                                            if(field.type === 'file') {
+                                                let fieldData = {
+                                                    el: field,
+                                                    name: field.name,
+                                                }
+                                                if(formData.get(field.name).size === 0) {
+                                                    fieldData.isCorrect = false;
+                                                    fieldData.errorMessage = formInterface[field.name].errorMessages.empty;
+                                                } else {
+                                                    fieldData.isCorrect = true;
+                                                }
+                                                result.push(fieldData);
+                                            }
+
+                                            if(field.type === 'text' || field.type === 'textarea') {
+                                                let fieldData = {
+                                                    el: field,
+                                                    name: field.name,
+                                                }
+                                                if(!formData.get(field.name).length) {
+                                                    fieldData.isCorrect = false;
+                                                    fieldData.errorMessage = formInterface[field.name].errorMessages.empty;
+                                                } else {
+                                                    fieldData.isCorrect = true;
+                                                }
+                                                result.push(fieldData);
+                                            }
+                                        });
+                                        return {ok: result.every(el => el.isCorrect), result}
+                                    }
+                                }
+
+                                const addErrorMessage = (container, fieldData) => {
+                                    container.insertAdjacentHTML('beforeend', `
+                                        <div class="contact-form__message text-4" id="${fieldData.name}">
+                                            ${fieldData.errorMessage}
+                                            <button><span></span></button>
+                                        </div>
+                                    `);
+                                }
+
+                                const setErrors = (fieldsData) => {
+                                    fieldsData.forEach(fieldData => {
+                                        if(!fieldData.isCorrect) {
+                                            fieldData.el.classList.add('error');
+                                            fieldData.el.parentElement.classList.add('error');
+                                            if(messagesContainer.querySelector(`#${fieldData.name}`)) return;
+                                            addErrorMessage(messagesContainer, fieldData);
+                                        }
+                                    })
+                                }
+
+                                const showSuccessScreen = () => {
+                                    let mainScreen = formContainer.querySelector('.contact-form__main');
+                                    let successScreen = formContainer.querySelector('.contact-form__result-of-submit.success');
+                                    mainScreen.classList.add('d-none');
+                                    successScreen.classList.remove('d-none');
+                                }
+                                const showUnsuccessScreen = () => {
+                                    let mainScreen = formContainer.querySelector('.contact-form__main');
+                                    let unsuccessScreen = formContainer.querySelector('.contact-form__result-of-submit.unsuccess');
+                                    mainScreen.classList.add('d-none');
+                                    unsuccessScreen.classList.remove('d-none');
+                                }
+
+                                function formSubmit(e) {
+                                    e.preventDefault();
+                                    const formData = new FormData(e.target);
+
+                                    let {ok, result} = validate(formData, requiredFields);
+                                    if(!ok) {
+                                        setErrors(result);
+                                    } else {
+                                        loader.show();
+                                        fetch("https://getform.io/f/f29731c9-0d62-4e29-b516-093bbfc9f419", {
+                                            method: "POST",
+                                            body: formData,
+                                            headers: {
+                                                "Accept": "application/json",
+                                            },
+                                        })
+                                        .then(response => {
+                                            loader.hide();
+                                            if(response.ok) {
+                                                showSuccessScreen();
+                                            } else {
+                                                showUnsuccessScreen();
+                                            }
+                                        })
+                                        .catch(error => {
+                                            loader.show();
+                                            showUnsuccessScreen();
+                                        })
+                                    }
+                                }
+                                
+                                // delete errors
+                                if(requiredFields.length) {
+                                    requiredFields.forEach(field => {
+                                        field.addEventListener('focus', (e) => {
+                                            field.classList.remove('error');
+                                            field.parentElement.classList.remove('error');
+                                            let message = messagesContainer.querySelector(`#${field.name}`);
+                                            if(message) {
+                                                message.remove();
+                                            }
+                                        })
+                                    })
+                                }
+
+                                messagesContainer.addEventListener('click', (e) => {
+                                    if(e.target.closest('button')) {
+                                        let message = e.target.closest('.contact-form__message');
+                                        message.remove();
+                                    }
+                                })
+                            </script>
+                    </div>
+                </div>
+
+                <div class="padding-wrap pb-0">
+                    @@include('components/lets-talk/_lets-talk.html', {
+                    "img": "img/photo/lets-talk-2.jpg",
+                    "text": "Let’s talk"
+                    })
+                </div>
+            </main>
+
+            <!-- == FOOTER ================== -->
+            @@include('components/footer/_footer.html',{})
+            <!-- == // FOOTER ================== -->
+        </div>
+    </div>
+
+
+</body>
+
+</html>

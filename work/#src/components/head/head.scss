@@ -1,0 +1,9 @@
+.head {
+    &__body {
+        transition: transform var(--global-animation-duration) ease-in var(--global-animation-delay);
+        transform: translateY(5rem);
+    }
+}
+.page-loaded .head__body {
+    transform: translateY(0);
+}

@@ -1,0 +1,202 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    @media (max-width: $md2+px) {
+        gap: 2.4rem;
+    }
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4rem 2.4rem;
+
+        @media (max-width: $md2+px) {
+            gap: 2.4rem 1.8rem;
+        }
+    }
+
+    &__item {
+        flex: 0 1 100%;
+    }
+
+    &__item--half {
+
+        @media (min-width: 992px) {
+            flex: 0 1 calc(50% - 1.2rem);
+        }
+
+        @media (min-width: 768px) {
+            flex: 0 1 calc(50% - 0.9rem);
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 2.4rem;
+
+        @media (max-width: $md3+px) {
+            gap: 1.6rem;
+        }
+    }
+
+    &__button {
+        flex: 0 0 auto;
+        border-radius: 0;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 6.4rem;
+        padding: 1.6rem 4rem;
+        color: $textColorLight;
+        font-weight: 600;
+        font-size: 1.7rem;
+        line-height: 1.8em;
+        background-color: $mainColor;
+        transition: all .2s ease;
+        cursor: pointer;
+
+        @media (max-width: $md2+px) {
+            font-size: 1.2rem;
+            height: 4.3rem;
+        }
+
+        @media (min-width: 992px) {
+            &:hover {
+                background-color: #cc1a02;
+            }
+        }
+    }
+
+    &__bottom-text {
+        
+    }
+}
+
+
+.input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: #EEF0F1;
+    border-radius: 0rem;
+    height: 6.4rem;
+    padding: 1.6rem 3.2rem;
+    border: 0.2rem solid transparent;
+    outline: none;
+    font-size: 1.7rem;
+    line-height: 1.8em;
+    font-weight: 600;
+    color: $textColorSecondary;
+
+    &:focus {
+        border-color: $textColorThird;
+    }
+
+    &::placeholder {
+        font-size: 1.7rem;
+        line-height: 1.8em;
+        font-weight: 600;
+        color: currentColor;
+
+        @media (max-width: $md2+px) {
+            font-size: 1.1rem;
+        }
+    }
+
+    @media (max-width: $md2+px) {
+        height: 4.2rem;
+        font-size: 1.1rem;
+        padding: 1rem 2rem;
+    }
+
+    &.error {
+        background-color: #fff;
+        color: $mainColor;
+        border-color: $mainColor;
+    }
+}
+.textarea {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: #EEF0F1;
+    border-radius: 0rem;
+    height: 24.6rem;
+    padding: 1.6rem 3.2rem;
+    border: 0.2rem solid transparent;
+    outline: none;
+    font-size: 1.7rem;
+    line-height: 1.8em;
+    font-weight: 600;
+    color: $textColorSecondary;
+    resize: none;
+
+    &:focus {
+        border-color: $textColorThird;
+    }
+
+    &::placeholder {
+        font-size: 1.7rem;
+        line-height: 1.8em;
+        font-weight: 600;
+        color: currentColor;
+
+        @media (max-width: $md2+px) {
+            font-size: 1.1rem;
+        }
+    }
+
+    @media (max-width: $md2+px) {
+        height: 16.4rem;
+        font-size: 1.1rem;
+        padding: 1rem 2rem;
+    }
+
+    &.error {
+        background-color: #fff;
+        color: $mainColor;
+        border-color: $mainColor;
+    }
+}
+
+.checkbox-radio {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    & input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        visibility: hidden;
+
+        &:checked ~ {
+            & .checkbox-radio__square {
+                background-color: $mainColor;
+                border-color: $mainColor;
+                background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEwIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0wLjk5OTk5OSA0LjYzNTg4TDIuNDc0NzEgNi4xMTA1OUMyLjg2NTIzIDYuNTAxMTEgMy40OTg0IDYuNTAxMTEgMy44ODg5MiA2LjExMDU5TDkgMC45OTk1MTIiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMS4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==");
+            }
+        }
+    }
+
+    &__square {
+        flex: 0 0 auto;
+        height: 1.2rem;
+        width: 1.2rem;
+        border: 1px solid $mainColor;
+        margin-right: 1rem;
+        background-position: center;
+        background-size: 85%;
+        background-repeat: no-repeat;
+    }
+
+    &__text {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.5em;
+    }
+}

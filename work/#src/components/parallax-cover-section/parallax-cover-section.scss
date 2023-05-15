@@ -1,0 +1,12 @@
+.parallax-cover-section {
+    
+    position: relative;
+    z-index: 10;
+    pointer-events: none;
+    margin-bottom: -15rem;
+
+    &__inner {
+        pointer-events: auto;
+        background-color: #fff;
+    }
+}

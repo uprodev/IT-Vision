@@ -1,0 +1,31 @@
+.title-line {
+    position: relative;
+    padding: 3.2rem 0;
+    color: $textColorThird;
+    background-color: #fff;
+
+    @media (max-width: $md2+px) {
+        padding: 2.4rem 0;
+    }
+
+    & .title-3 {
+        color: inherit;
+    }
+
+    & strong {
+        color: $textColorSecondary;
+    }
+
+    &--load-fade-in {
+        transition: transform var(--global-animation-duration) ease-in var(--global-animation-delay);
+        transform: translateY(5rem);
+    }
+}
+
+ 
+.page-loaded .title-line {
+    &--load-fade-in {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

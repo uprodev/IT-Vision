@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('_head.html',{
+"title": "IT-Vision"
+})
+
+<body>
+	<div class="_preload-body"></div>
+	<!-- == HEADER ================== -->
+	@@include('components/header/_header.html',{
+	"mod": ""
+	})
+	<!-- == // HEADER ================== -->
+	<div id="smooth-wrapper">
+		<div id="smooth-content">
+			<div class="pt-by-header-size"></div>
+			<main class="_page home-page">
+				<div class="parallax-cover-section" data-scroll-parallax-trigger>
+					<div class="parallax-cover-section__inner" data-scroll-parallax="-15rem,top,0,bottom,200px"
+                    data-scroll-parallax-mob="-15rem,top,84px,bottom,210px,2">
+						<section class="head pt-80 pt-lg-120 pb-100 pb-lg-200">
+							<div class="head__body container-second">
+								<div class="lg-text-section">
+									<div class="lg-text-section__label">
+										From people to people
+									</div>
+									<div class="lg-text-section__text lg-text-section__text--indent text-content text-2">
+										<p>
+											<strong>Let us help you bring your vision to life and take your business to the next level.</strong>
+										</p>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+                <div class="padding-wrap pt-0">
+					@@include('components/products/_products.html')
+				</div>
+
+                <div class="padding-wrap">
+                    <section class="title-line title-line--load-fade-in">
+                        <div class="container">
+                            <h3 class="title-3"><strong>Recent works</strong></h3>
+                        </div>
+                    </section>
+                    <section class="works">
+                        <div class="works__list">
+                            <a href="#" class="works__item work-preview-card" data-scroll-parallax-trigger>
+                                <div class="work-preview-card__inner" data-scroll-parallax="15rem,bottom,75%,bottom,25%" data-scroll-parallax-mob="15rem,bottom,75%,bottom,25%">
+                                    <div class="work-preview-card__text-content container">
+                                        <h3 class="work-preview-card__title work-preview-card__title--dark title-3"
+                                            data-hover-text="Drone Harmony"><span>Drone Harmony</span></h3>
+                                    </div>
+                                    <div class="work-preview-card__img ibg">
+                                        <img src="img/photo/work-img-2.jpg" alt="">
+                                    </div>
+                                    <div class="work-preview-card__img-hover ibg">
+                                        <img src="img/photo/work-img-5.jpg" alt="">
+                                    </div>
+                                    <div class="work-preview-card__label">
+                                        <div class="work-preview-card__label-arrow">
+                                            <img src="img/icons/arrot-top-right.svg" alt="">
+                                        </div>
+                                        <div class="work-preview-card__label-text text-4">
+                                            Show
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="works__item work-preview-card" data-scroll-parallax-trigger>
+                                <div class="work-preview-card__inner" data-scroll-parallax="15rem,bottom,75%,bottom,25%" data-scroll-parallax-mob="15rem,bottom,75%,bottom,25%">
+                                    <div class="work-preview-card__text-content container">
+                                        <h3 class="work-preview-card__title work-preview-card__title--dark work-preview-card__title--hover-dark title-3"
+                                            data-hover-text="Binance Pay"><span>Binance Pay</span></h3>
+                                    </div>
+                                    <div class="work-preview-card__img ibg">
+                                        <img src="img/photo/work-img-9.jpg" alt="">
+                                    </div>
+                                    <div class="work-preview-card__img-hover ibg">
+                                        <img src="img/photo/work-img-6.jpg" alt="">
+                                    </div>
+                                    <div class="work-preview-card__label">
+                                        <div class="work-preview-card__label-arrow">
+                                            <img src="img/icons/arrot-top-right.svg" alt="">
+                                        </div>
+                                        <div class="work-preview-card__label-text text-4">
+                                            Show
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="works__bottom">
+                            <a href="#" class="btn" data-hover-text="+ More"><span>+ More</span></a>
+                        </div>
+                    </section>
+                </div>
+
+				<div class="padding-wrap pb-0">
+					@@include('components/lets-talk/_lets-talk.html', {
+                        "img": "img/photo/lets-talk-2.jpg",
+                        "text": "Let’s talk"
+                    })
+				</div>
+			</main>
+	
+			<!-- == FOOTER ================== -->
+			@@include('components/footer/_footer.html',{})
+			<!-- == // FOOTER ================== -->
+		</div>
+	</div>
+
+	
+</body>
+
+</html>

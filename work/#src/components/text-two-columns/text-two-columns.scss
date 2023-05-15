@@ -1,0 +1,22 @@
+.text-two-columns {
+    color: $textColorThird;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8rem 4.8rem;
+
+    @media (max-width: $md3+px) {
+        gap: 4rem;
+    }
+
+    &__col {
+        flex: 0 1 calc(50% - 2.4rem);
+
+        @media (max-width: $md3+px) {
+            flex: 0 1 100%;
+        }
+
+        & > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

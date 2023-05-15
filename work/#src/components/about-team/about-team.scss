@@ -1,0 +1,100 @@
+.about-team {
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6.4rem 0;
+
+        @media (max-width: $md2+px) {
+            gap: 3.2rem 0;
+        }
+    }
+
+    &__item {
+        flex: 0 1 25%;
+        
+
+        @media (max-width: $md3+px) {
+            flex: 0 1 50%;
+
+            &:nth-child(odd) {
+                & .about-team__name {
+                    padding-left: 2.4rem;
+                }
+            }
+        }
+
+        &:first-child {
+            & .about-team__name {
+                padding-left: 4.8rem;
+
+                @media (max-width: $md1+px) {
+                    padding-left: 3.2rem;
+                }
+                @media (max-width: $md2+px) {
+                    padding-left: 2.4rem;
+                }
+            }
+        }
+    }
+
+    &__photo {
+        padding-bottom: 100%;
+        margin-bottom: 2.4rem;
+
+        @media (max-width: $md2+px) {
+            margin-bottom: 1.6rem;
+        }
+    }
+
+    &__name {
+        color: $textColorThird;
+        padding-right: 3.2rem;
+    }
+
+    &__bottom {
+        display: flex;
+        gap: 5rem;
+        min-width: 0;
+
+        @media (max-width: $md2+px) {
+            flex-direction: column-reverse;
+            gap: 10.4rem;
+        }
+
+        @media (max-width: $md3+px) {
+            gap: 5.6rem;
+        }
+    }
+
+    &__col {
+    }
+
+    &__col-1 {
+        min-width: 0;
+        @media (min-width: 992px) {
+            flex: 0 0 46.38%;
+        }
+    }
+
+    &__col-2 {
+        flex: 1 1 auto;
+
+        & .lg-text-section {
+            @media (min-width: 992px) {
+                padding: 0 4.6rem;
+            }
+
+            @media (max-width: $md2+px) {
+                max-width: 53rem;
+
+                & .lg-text-section__text--indent {
+                    & p:first-of-type {
+                        text-indent: 7.6rem;
+                    }
+                }
+            }
+        }
+    }
+}
+

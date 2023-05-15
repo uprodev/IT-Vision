@@ -1,0 +1,66 @@
+//<MIXINE>===============================================================================================
+@import "mixins.scss";
+//</MIXINE>===============================================================================================
+
+// ==== FONTS ===========================================================================================
+@import "fonts";
+// ==== // FONTS ===========================================================================================
+
+// ==== Normalize ===========================================================================================
+@import "normalize"; 
+// ==== // НОРМАЛАЙЗ ===========================================================================================
+
+//<ICOMOON>===============================================================================================
+@import "../icomoon/style";
+//</ICOMOON>===============================================================================================
+
+// ==== PLUGINS ===========================================================================================
+@import "plugins/swiper-bundle";
+@import "plugins/fancybox";
+// ==== // PLUGINS ===========================================================================================
+
+// ==== VARS ===========================================================================================
+@import "vars";
+// ==== // VARS ===========================================================================================
+
+
+// ==== BASE STYLES ===========================================================================================
+@import "base";
+// ==== // BASE STYLES ===========================================================================================
+
+
+// ==== components BLOCKS =====================================================
+@import "../components/header/header";
+@import "../components/footer/footer";
+@import "../components/buttons/buttons";
+@import "../components/card/card";
+@import "../components/head/head";
+@import "../components/lg-text-section/lg-text-section";
+@import "../components/title-line/title-line";
+@import "../components/works/works";
+@import "../components/parallax-cover-section/parallax-cover-section";
+@import "../components/text-two-columns/text-two-columns";
+@import "../components/products/products";
+@import "../components/services/services";
+@import "../components/text-parallax/text-parallax";
+@import "../components/img-full-width/img-full-width";
+@import "../components/stats/stats";
+@import "../components/instagram/instagram";
+@import "../components/reviews/reviews";
+@import "../components/lets-talk/lets-talk";
+@import "../components/work-head/work-head";
+@import "../components/banner-with-center-link/banner-with-center-link";
+@import "../components/banner-step/banner-step";
+@import "../components/about-team/about-team";
+@import "../components/table/table";
+@import "../components/form/form";
+@import "../components/input-file/input-file";
+// ==== // components BLOCKS =====================================================
+
+// ==== PAGES =====================================================
+@import "pages/home";
+@import "pages/work";
+@import "pages/services";
+@import "pages/about";
+@import "pages/contact";
+// ==== AND PAGES =====================================================

@@ -1,0 +1,54 @@
+.table {
+    overflow-x: auto;
+    width: auto;
+
+    &::-webkit-scrollbar {
+		width: 0px;
+		height: 0px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: transparent;
+		border-radius: 10px;
+	}
+	&::-webkit-scrollbar-track {
+		background: transparent;
+		border-radius: 10px;
+		box-shadow: inset 0px 0px 0px 0px #fff;
+	}
+
+    @media (max-width: $md2+px) {
+        margin: 0 -2.4rem;
+    }
+
+    &__inner {
+        
+    }
+
+    & table {
+        width: 100%;
+        color: $textColorThird;
+
+        & tbody {
+            padding: 0;
+            border: none;
+        }
+
+        & tr {
+            &:nth-child(odd) {
+                & td {
+                    background-color: rgba(#EDF6F7, 0.5);
+                }
+            }
+        }
+
+        & td {
+            height: 8.5rem;
+            padding: 1.6rem 4.8rem;
+
+            @media (max-width: $md2+px) {
+                height: 5.7rem;
+                padding: 0.8rem 2.4rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,437 @@
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 47;
+    transition: opacity var(--global-animation-duration) ease-in var(--global-animation-delay), transform var(--global-animation-duration) ease-in var(--global-animation-delay);
+    opacity: 0;
+    transform: translateY(-100%);
+
+    &:before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        transition: all 0.3s ease;
+        display: block;
+    }
+
+    &--scroll-down {
+        &:before {
+            opacity: 0;
+            transform: translateY(-100%);
+        }
+    }
+
+    &__body {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        gap: 0 7.2rem;
+        align-items: center;
+        min-width: 0;
+
+        --defaultHeight: 5.5rem;
+
+        @media (max-width: $md2+px) {
+            gap: 0 4.4rem;
+
+            --defaultHeight: 4.2rem;
+        }
+
+        @media (max-width: $md3+px) {
+            flex-wrap: wrap;
+
+            gap: 0 2.4rem;
+        }
+    }
+
+    &__logo {
+        color: $textColorSecondary;
+        font-size: 1.7rem;
+        font-weight: 500;
+        line-height: 1em;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+
+        @media (min-width: 992px) {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        @media (max-width: $md2+px) {
+            font-size: 1.2rem;
+        }
+
+        & a {
+            display: flex;
+            align-items: center;
+            position: relative;
+            height: var(--defaultHeight);
+            color: $textColorSecondary;
+
+            &:before {
+                position: absolute;
+                content: "";
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%) scale(0.9);
+                width: calc(100% + 6.4rem);
+                height: 100%;
+                background-color: $mainColor;
+                z-index: -1;
+                transition: all 0.3s ease;
+                opacity: 0;
+            }
+
+            @media (min-width: 992px) {
+                &:hover {
+                    color: $textColorLight !important;
+
+                    &:before {
+                        transform: translateX(-50%) scale(1);
+                        opacity: 1;
+                    }
+
+                    & svg path {
+                        fill: $textColorLight;
+                    }
+                }
+            }
+        }
+
+        & svg {
+            width: 4rem;
+            height: auto;
+            margin-right: 1.2rem;
+            flex: 0 0 auto;
+
+            @media (max-width: $md2+px) {
+                width: 3.2rem;
+            }
+
+            & path {
+                fill: $textColorSecondary;
+                transition: all 0.3s ease;
+            }
+        }
+    }
+
+    &__center {
+        display: flex;
+        align-items: center;
+        gap: 7.2rem;
+        min-width: 0;
+
+        @media (max-width: $md2+px) {
+            gap: 2.4rem;
+            width: auto !important;
+        }
+
+        @media (max-width: $md3+px) {
+            order: 1;
+            flex: 0 1 100%;
+            width: 100%;
+            position: relative;
+
+            &:before {
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100vw;
+                height: 1px;
+                opacity: 0.1;
+                background-color: $textColorThird;
+            }
+        }
+    }
+
+    &__nav {
+        overflow: visible;
+        margin-left: 0;
+        margin-right: 0;
+        gap: 0;
+        min-width: 0;
+
+        & .swiper-slide {
+            width: auto;
+            height: auto;
+        }
+
+        @media (min-width: 992px) {
+            & .swiper-wrapper {
+                gap: 7.2rem;
+            }
+        }
+        @media (min-width: 768px) {
+            & .swiper-wrapper {
+                gap: 2.4rem;
+            }
+
+            & .swiper-slide {
+                width: auto;
+                height: auto;
+            }
+        }
+    }
+
+    &__nav-link {
+        display: flex;
+        align-items: center;
+        position: relative;
+        height: var(--defaultHeight);
+        font-size: 1.6rem;
+        line-height: 1.8em;
+        font-weight: 500;
+        color: $textColor !important;
+
+        &.active {
+            color: $textColorThird !important;
+            --border-width: 0.1rem;
+            background: linear-gradient(to bottom, transparent 0%,transparent calc(100% - var(--border-width)), currentColor var(--border-width));
+        }
+
+        &:before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) scale(0.9);
+            width: calc(100% + 6.4rem);
+            height: 100%;
+            background-color: $secondColor;
+            z-index: -1;
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        @media (max-width: $md2+px) {
+            font-size: 1.2rem;
+        }
+
+        @media (min-width: 992px) {
+            &:hover:not(.active) {
+                color: $textColorLight !important;
+
+                &:before {
+                    transform: translateX(-50%) scale(1);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &__language {
+        position: relative;
+        font-weight: 500;
+        font-size: 1.6rem;
+        line-height: 1.8em;
+        color: $textColorThird;
+        z-index: 5;
+
+        @media (max-width: $md2+px) {
+            font-size: 1.2rem;
+        }
+
+        &:hover {
+            color: $textColorLight;
+
+            & .header__language-current:before {
+                transform: translateX(-50%) scale(1);
+                opacity: 1;
+            }
+
+            & .header__language-drop-list {
+                transform: translateY(0);
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+
+        &:before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) scale(1);
+            width: calc(100% + 4em);
+            height: 100%;
+            background-color: red;
+            z-index: 1;
+            transition: all 0.3s ease;
+            opacity: 0;
+
+            @media (max-width: $md2+px) {
+                width: calc(100% + 3em);
+            }
+        }
+    }
+
+    &__language-current {
+        display: flex;
+        align-items: center;
+        height: var(--defaultHeight);
+        position: relative;
+        z-index: 2;
+
+        &:after {
+            margin-left: 0.3em;
+            content: "•";
+        }
+
+        &:before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) scale(0.9);
+            width: calc(100% + 4em);
+            height: 100%;
+            background-color: $secondColor;
+            z-index: -1;
+            transition: all 0.3s ease;
+            opacity: 0;
+
+            @media (max-width: $md2+px) {
+                width: calc(100% + 3em);
+            }
+        }
+    }
+
+    &__language-drop-list {
+        padding-left: 0;
+        margin-bottom: 0;
+        position: absolute;
+        z-index: 1;
+        top: 100%;
+        left: 0;
+        background-color: $secondColor;
+        color: $textColorLight;
+        min-width: 100%;
+        transition: all 0.3s ease;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(1rem);
+
+        &:before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) scale(1);
+            width: calc(100% + 4em);
+            height: 100%;
+            background-color: $secondColor;
+            z-index: -1;
+
+            @media (max-width: $md2+px) {
+                width: calc(100% + 3em);
+            }
+        }
+
+        & a {
+            display: flex;
+            height: var(--defaultHeight);
+            align-items: center;
+            position: relative;
+
+            &:after {
+                margin-left: 0.3em;
+                content: "•";
+            }
+
+            &:before {
+                position: absolute;
+                content: "";
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%) scale(0.9);
+                width: calc(100% + 4em);
+                height: 100%;
+                background-color: $mainColor;
+                z-index: -1;
+                transition: all 0.3s ease;
+                opacity: 0;
+
+                @media (max-width: $md2+px) {
+                    width: calc(100% + 3em);
+                }
+            }
+
+            &:hover {
+                color: $textColorLight !important;
+
+                &:before {
+                    opacity: 1;
+                    transform: translateX(-50%) scale(1);
+                }
+            }
+        }
+    }
+
+    &__button {
+        font-weight: 600;
+        font-size: 1.6rem;
+        line-height: 1.8em;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: var(--defaultHeight);
+        color: $textColorSecondary;
+        position: relative;
+        border-bottom: 0.1rem solid currentColor;
+        transition: all 0.3s ease;
+
+        @media (min-width: 992px) {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        @media (max-width: $md2+px) {
+            font-size: 1.2rem;
+        }
+
+        &:before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) scale(0.9);
+            width: calc(100% + 6.4rem);
+            height: 100%;
+            background-color: $mainColor;
+            z-index: -1;
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        @media (min-width: 992px) {
+            &:hover {
+                color: $textColorLight !important;
+                border-color: transparent;
+
+                &:before {
+                    transform: translateX(-50%) scale(1);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.page-loaded .header {
+    transform: translateY(0);
+    opacity: 1;
+}

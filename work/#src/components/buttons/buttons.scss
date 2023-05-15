@@ -1,0 +1,77 @@
+.btn {
+    display: inline-block;
+    padding: 0;
+    border-radius: 0;
+    height: 6.4rem;
+    font-size: 3rem;
+    line-height: 1.6em;
+    font-weight: 600;
+    color: $textColorThird;
+
+    --border-width: 0.2rem;
+
+    @media (max-width: $md2+px) {
+        font-size: 2rem;
+        height: 4.2rem;
+
+        --border-width: 0.1rem;
+    }
+}
+
+[data-hover-text] {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    transition: color 0s ease-in;
+
+    & > span {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem 0;
+        font-size: inherit;
+        line-height: inherit;
+        color: inherit;
+        transition: all .2s ease;
+        background: linear-gradient(to bottom, transparent 0%,transparent calc(100% - var(--border-width)), currentColor var(--border-width));
+        background-repeat: no-repeat;
+
+        @media (max-width: $md2+px) {
+            padding: 0.5rem 0;
+        }
+    }
+
+    @media (min-width: 992px) {
+        &:before {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            content: attr(data-hover-text);
+            display: flex;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 0;
+            font-size: inherit;
+            line-height: inherit;
+            color: inherit;
+            transition: all .2s ease;
+            background: linear-gradient(to bottom, transparent 0%,transparent calc(100% - (var(--border-width) + 0.1rem)), currentColor calc(var(--border-width) + 0.1rem));
+        }
+
+        &:hover {
+            color: $hover !important;
+            & > span {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+
+            &::before {
+                transform: translateY(-100%);
+            }
+        }
+    }
+
+}

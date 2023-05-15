@@ -1,0 +1,66 @@
+.lg-text-section {
+    &__label {
+        font-weight: 600;
+        font-size: 1.7rem;
+        line-height: 1.8em;
+        color: $textColorThird;
+
+        @media (max-width: $md2+px) {
+            font-size: 1.2rem;
+        }
+
+        & a {
+            --border-width: 0.1rem;
+            background: linear-gradient(to bottom, transparent 0%,transparent calc(100% - var(--border-width)), transparent var(--border-width));
+            transition: all .2s ease;
+
+            @media (min-width: 992px) {
+                &:hover {
+                    background: linear-gradient(to bottom, transparent 0%,transparent calc(100% - var(--border-width)), currentColor var(--border-width));
+                }
+            }
+        }
+    }
+
+    &__title-2 {
+        color: $textColorThird;
+        margin-bottom: 8rem;
+    }
+
+    &__text {
+        color: $textColorThird;
+
+        & strong {
+            font-weight: 650;
+            color: $textColorSecondary;
+        }
+        & > *:last-child {
+            margin-bottom: 0;
+        }
+
+        &--indent {
+            & p:first-of-type {
+                text-indent: 16rem;
+
+                @media (max-width: $md2+px) {
+                    text-indent: 10.6rem;
+                }
+                @media (max-width: $md3+px) {
+                    text-indent: 4rem;
+                }
+            }
+        }
+        &--indent-all {
+            & p {
+                text-indent: 16rem;
+
+                @media (max-width: $md2+px) {
+                    text-indent: 10.6rem;
+                }
+                @media (max-width: $md3+px) {
+                    text-indent: 4rem;
+                }
+            }
+        }
+    }
+}

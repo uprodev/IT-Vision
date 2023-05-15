@@ -1,0 +1,105 @@
+.instagram-section {
+
+    &__body {
+        position: relative;
+    }
+
+    &__link {
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 56%;
+        transform: translate(-50%, -50%);
+        font-size: 8rem;
+        line-height: 1em;
+        font-weight: 500;
+        color: $textColorSecondary;
+        
+
+        --border-width: 0.5rem;
+
+        @media (max-width: $md2+px) {
+            font-size: 5.3rem;
+            left: 52%;
+            --border-width: 0.3rem;
+        }
+    }
+
+    &__slider {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        pointer-events: none !important;
+
+        @media (max-width: $md2+px) {
+            margin: 0 auto;
+            max-width: 59rem;
+        }
+
+        @media (max-width: $md3+px) {
+            height: 39.3rem;
+            margin: 0 -24px;
+        }
+
+        & .swiper {
+            margin-right: 0;
+            overflow: visible;
+            height: 58.9rem;
+            width: 58.9rem;
+
+            @media (max-width: $md2+px) {
+                height: 39.3rem;
+                width: 39.3rem;
+            }
+        }
+
+        & .swiper-slide {
+            transition: opacity .6s ease-in, transform .6s ease-in;
+
+
+            
+            & img {
+                transform: translateX(0%) scale(1);
+                transition: transform .4s ease;
+            }
+
+            &.swiper-slide-active {
+                & img {
+                    transition: transform .0s ease;
+                }
+            }
+
+            &.swiper-slide-next {
+                opacity: 0;
+            }
+
+            &:not(.swiper-slide-next):not(.swiper-slide-active) {
+                & img {
+                    transform: translateX(22%) scale(0.38);
+                }
+            }
+        }
+    }
+
+    &__slider-inner {
+        @media (max-width: $md3+px) {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 57.6rem;
+            height: 100%;
+        }
+    }
+}
+
+.container-second {
+}
+.swiper {
+}
+.swiper-wrapper {
+}
+.swiper-slide {
+}
+.ibg {
+}

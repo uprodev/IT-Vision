@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IT-Vision</title>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		body.page-loaded ._preload-body {
+			display: none;
+		}
+
+		body.page-is-load ._preload-body:before {
+			display: none;
+		}
+
+		._preload-body {
+			background-color: #fff;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 999;
+		}
+
+		._preload-body:before {
+			position: absolute;
+			content: '';
+			z-index: 999;
+			top: 50%;
+			left: 50%;
+			height: 50px;
+			width: 50px;
+			border-radius: 50%;
+			border: 4px solid #6e6e6e;
+			border-right: 4px solid #fff;
+			-webkit-transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			-webkit-animation: preloadBody 2s linear infinite;
+			animation: preloadBody 2s linear infinite;
+		}
+
+		@-webkit-keyframes preloadBody {
+			from {
+				-webkit-transform: translate(-50%, -50%) rotate(0);
+				transform: translate(-50%, -50%) rotate(0);
+			}
+
+			to {
+				-webkit-transform: translate(-50%, -50%) rotate(360deg);
+				transform: translate(-50%, -50%) rotate(360deg);
+			}
+		}
+
+		@keyframes preloadBody {
+			from {
+				-webkit-transform: translate(-50%, -50%) rotate(0);
+				transform: translate(-50%, -50%) rotate(0);
+			}
+
+			to {
+				-webkit-transform: translate(-50%, -50%) rotate(360deg);
+				transform: translate(-50%, -50%) rotate(360deg);
+			}
+		}
+	</style>
+
+	<script>
+
+		let element = document.querySelector('html');
+		if (element) {
+			const setFontSize = () => {
+				let value = 10 / 1920 * element.clientWidth;
+				element.style.fontSize = value + 'px';
+			}
+
+			setFontSize();
+
+			window.addEventListener('resize', setFontSize);
+		}
+
+	</script>
+
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+<script src="js/vendors.js"></script>
+<script src="js/app.js"></script>
+<script
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7Q82l2QjSzJJk1uUW3OzUBGPTlbk8w1g&callback=initMap&libraries=&v=weekly"
+defer
+></script>
+</head>
+
+<body>
+	<div class="_preload-body"></div>
+	<!-- == HEADER ================== -->
+	<header class="header " data-header>
+    <div class="header__body container">
+        <div class="header__logo">
+            <a href="#">
+                <svg width="40" height="17" viewBox="0 0 40 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M19.5127 11.1658L19.6674 6.90988L16.0692 9.19263L15.1406 7.56762L18.9323 5.5944L15.1406 3.62118L16.0692 1.99617L19.6674 4.27892L19.5127 0.0229492H21.3698L21.2151 4.27892L24.8133 1.99617L25.7419 3.62118L21.9502 5.5944L25.7419 7.56762L24.8133 9.19263L21.2151 6.90988L21.3698 11.1658H19.5127Z"
+                        />
+                    <path
+                        d="M0 10.4483V9.21019L11.8393 2.68115V4.57699L2.12798 9.81957L2.22471 9.64546V10.013L2.12798 9.83892L11.8393 15.0815V16.9773L0 10.4483Z"
+                        />
+                    <path
+                        d="M40 10.4483L28.1607 16.9773V15.0815L37.872 9.83892L37.785 10.013V9.64546L37.872 9.81957L28.1607 4.57699V2.68115L40 9.21019V10.4483Z"
+                        />
+                </svg>
+                IT Vision
+            </a>
+        </div>
+        <div class="header__center container-second">
+            <div class="header__nav swiper" data-header-nav data-mobile="false">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="#test" class="header__nav-link active">Work</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="header__nav-link">Products</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="header__nav-link">Services</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="header__nav-link">Methods</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="header__nav-link">About</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="header__nav-link ">Contacts</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header__language" data-da=".header__body,767.98,1">
+                <div class="header__language-current">DE</div>
+                <ul class="header__language-drop-list">
+                    <li>
+                        <a href="#">EU</a>
+                    </li>
+                    <li>
+                        <a href="#">FR</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <a href="#" class="header__button">
+            Start a project
+        </a>
+    </div>
+</header>
+	<!-- == // HEADER ================== -->
+	<div id="smooth-wrapper">
+		<div id="smooth-content">
+			<div class="pt-by-header-size"></div>
+			<main class="_page home-page">
+				<div class="parallax-cover-section" data-scroll-parallax-trigger>
+					<div class="parallax-cover-section__inner" data-scroll-parallax="-15rem,top,0,bottom,200px"
+                    data-scroll-parallax-mob="-15rem,top,84px,bottom,210px,2">
+						<section class="head pt-80 pt-lg-120 pb-100 pb-lg-200">
+							<div class="head__body container-second">
+								<div class="lg-text-section">
+									<div class="lg-text-section__label">
+										From people to people
+									</div>
+									<div class="lg-text-section__text lg-text-section__text--indent text-content text-2">
+										<p>
+											<strong>Let us help you bring your vision to life and take your business to the next level.</strong>
+										</p>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+                <div class="padding-wrap pt-0">
+					<section class="products">
+    <div class="products__bg ibg">
+        <picture>
+            <source srcset="img/photo/products-bg.jpg"  media="(min-width: 992px)" >
+            <source srcset="img/photo/products-bg-tablet.jpg"  media="(min-width: 768px)" >
+            <img src="img/photo/products-bg-mob.jpg" alt="img">
+        </picture>
+    </div>
+    <div class="products__list">
+        <a href="#" class="products__item">
+            <div class="products__item-body">
+                <div class="products__item-text text-4">
+                    Official Company Website. For small & medium businesses. Unique design with the best UX, CX experience.
+                </div>
+                <h2 class="products__item-title title-2" data-hover-text="MVP Development">
+                    <span>MVP Development</span>
+                </h2>
+            </div>
+        </a>
+        <a href="#" class="products__item">
+            <div class="products__item-body">
+                <div class="products__item-text text-4">
+                    Official Company Website. For small & medium businesses. Unique design with the best UX, CX experience.
+                </div>
+                <h2 class="products__item-title title-2" data-hover-text="Wow site development">
+                    <span>Wow site development</span>
+                </h2>
+            </div>
+        </a>
+        <a href="#" class="products__item">
+            <div class="products__item-body">
+                <div class="products__item-text text-4">
+                    Official Company Website. For small & medium businesses. Unique design with the best UX, CX experience.
+                </div>
+                <h2 class="products__item-title title-2" data-hover-text="Corporate Website">
+                    <span>Corporate Website</span>
+                </h2>
+            </div>
+        </a>
+        <a href="#" class="products__item">
+            <div class="products__item-body">
+                <div class="products__item-text text-4">
+                    Official Company Website. For small & medium businesses. Unique design with the best UX, CX experience.
+                </div>
+                <h2 class="products__item-title title-2" data-hover-text="E-Commerce Shop">
+                    <span>E-Commerce Shop</span>
+                </h2>
+            </div>
+        </a>
+        <a href="#" class="products__item">
+            <div class="products__item-body">
+                <div class="products__item-text text-4">
+                    Official Company Website. For small & medium businesses. Unique design with the best UX, CX experience.
+                </div>
+                <h2 class="products__item-title title-2" data-hover-text="Mobile App">
+                    <span>Mobile App</span>
+                </h2>
+            </div>
+        </a>
+        <a href="#" class="products__item">
+            <div class="products__item-body">
+                <div class="products__item-text text-4">
+                    Official Company Website. For small & medium businesses. Unique design with the best UX, CX experience.
+                </div>
+                <h2 class="products__item-title title-2" data-hover-text="UX/UI Design">
+                    <span>UX/UI Design</span>
+                </h2>
+            </div>
+        </a>
+        <a href="#" class="products__item">
+            <div class="products__item-body">
+                <div class="products__item-text text-4">
+                    Official Company Website. For small & medium businesses. Unique design with the best UX, CX experience.
+                </div>
+                <h2 class="products__item-title title-2" data-hover-text="Prototype">
+                    <span>Prototype</span>
+                </h2>
+            </div>
+        </a>
+        <a href="#" class="products__item">
+            <div class="products__item-body">
+                <div class="products__item-text text-4">
+                    Official Company Website. For small & medium businesses. Unique design with the best UX, CX experience.
+                </div>
+                <h2 class="products__item-title title-2" data-hover-text="CRM System">
+                    <span>CRM System</span>
+                </h2>
+            </div>
+        </a>
+        <a href="#" class="products__item">
+            <div class="products__item-body">
+                <div class="products__item-text text-4">
+                    Official Company Website. For small & medium businesses. Unique design with the best UX, CX experience.
+                </div>
+                <h2 class="products__item-title title-2" data-hover-text="Corporate Design">
+                    <span>Corporate Design</span>
+                </h2>
+            </div>
+        </a>
+    </div>
+</section>
+				</div>
+
+                <div class="padding-wrap">
+                    <section class="title-line title-line--load-fade-in">
+                        <div class="container">
+                            <h3 class="title-3"><strong>Recent works</strong></h3>
+                        </div>
+                    </section>
+                    <section class="works">
+                        <div class="works__list">
+                            <a href="#" class="works__item work-preview-card" data-scroll-parallax-trigger>
+                                <div class="work-preview-card__inner" data-scroll-parallax="15rem,bottom,75%,bottom,25%" data-scroll-parallax-mob="15rem,bottom,75%,bottom,25%">
+                                    <div class="work-preview-card__text-content container">
+                                        <h3 class="work-preview-card__title work-preview-card__title--dark title-3"
+                                            data-hover-text="Drone Harmony"><span>Drone Harmony</span></h3>
+                                    </div>
+                                    <div class="work-preview-card__img ibg">
+                                        <img src="img/photo/work-img-2.jpg" alt="">
+                                    </div>
+                                    <div class="work-preview-card__img-hover ibg">
+                                        <img src="img/photo/work-img-5.jpg" alt="">
+                                    </div>
+                                    <div class="work-preview-card__label">
+                                        <div class="work-preview-card__label-arrow">
+                                            <img src="img/icons/arrot-top-right.svg" alt="">
+                                        </div>
+                                        <div class="work-preview-card__label-text text-4">
+                                            Show
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="works__item work-preview-card" data-scroll-parallax-trigger>
+                                <div class="work-preview-card__inner" data-scroll-parallax="15rem,bottom,75%,bottom,25%" data-scroll-parallax-mob="15rem,bottom,75%,bottom,25%">
+                                    <div class="work-preview-card__text-content container">
+                                        <h3 class="work-preview-card__title work-preview-card__title--dark work-preview-card__title--hover-dark title-3"
+                                            data-hover-text="Binance Pay"><span>Binance Pay</span></h3>
+                                    </div>
+                                    <div class="work-preview-card__img ibg">
+                                        <img src="img/photo/work-img-9.jpg" alt="">
+                                    </div>
+                                    <div class="work-preview-card__img-hover ibg">
+                                        <img src="img/photo/work-img-6.jpg" alt="">
+                                    </div>
+                                    <div class="work-preview-card__label">
+                                        <div class="work-preview-card__label-arrow">
+                                            <img src="img/icons/arrot-top-right.svg" alt="">
+                                        </div>
+                                        <div class="work-preview-card__label-text text-4">
+                                            Show
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="works__bottom">
+                            <a href="#" class="btn" data-hover-text="+ More"><span>+ More</span></a>
+                        </div>
+                    </section>
+                </div>
+
+				<div class="padding-wrap pb-0">
+					<section class="lets-talk">
+    <div class="lets-talk__bg ibg">
+        <img src="img/photo/lets-talk-2.jpg" alt="">
+    </div>
+    <div class="lets-talk__text text-4 container">
+        Tell us about your project
+    </div>
+    <a href="#" class="lets-talk__link" data-hover-text="Let’s talk">
+        <span>Let’s talk</span>
+    </a>
+</section>
+				</div>
+			</main>
+	
+			<!-- == FOOTER ================== -->
+			<footer class="footer">
+    <div class="container">
+        <div class="footer__row-1">
+            <div class="footer__col">
+                <div class="footer__text text-3">
+                    <div class="footer__address">
+                        VisionLink GmbH, <br> Wächlenstrasse 5, 8832 Wollerau
+                    </div>
+                    <a href="#" class="footer__phone">
+                        +41 78 732 21 09,
+                    </a>
+                    <a href="#" class="footer__eamil">hello@it-vision.ch</a>
+                    <a href="#" class="footer__link" data-hover-text="Let’s talk"><span>Let’s talk</span></a>
+                </div>
+            </div>
+            <div class="footer__col">
+                <ul class="footer__list">
+                    <li>
+                        <a href="#" class="footer__link" data-hover-text="Works">
+                            <span>Works</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <ul class="footer__list">
+                    <li>
+                        <a href="#" class="footer__link" data-hover-text="Products">
+                            <span>Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer__link" data-hover-text="Services">
+                            <span>Services</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer__link" data-hover-text="Methods">
+                            <span>Methods</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer__link" data-hover-text="AI">
+                            <span>AI</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <ul class="footer__list">
+                    <li>
+                        <a href="#" class="footer__link" data-hover-text="About">
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer__link" data-hover-text="Contacts">
+                            <span>Contacts</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <ul class="footer__list">
+                    <li>
+                        <a href="#" class="footer__link" data-hover-text="Insights">
+                            <span>Insights</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__row-2">
+            <div class="footer__label" data-footer-label>
+                Made with love in Switzerland
+            </div>
+        </div>
+        <div class="footer__row-3 text-4">
+            <div class="footer__col">
+                <div class="footer__copy">©2023 by VisionLink GmbH</div>
+            </div>
+            <div class="footer__col">
+                <ul class="footer__social social">
+                    <li>
+                        <a href="#">
+                            <img src="img/icons/instagram.svg" alt="" class="img-svg">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/icons/linkedin.svg" alt="" class="img-svg">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/icons/be.svg" alt="" class="img-svg">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/icons/ball.svg" alt="" class="img-svg">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <a href="#" class="footer__link" data-hover-text="Terms&Conditions">
+                    <span>Terms&Conditions</span>
+                </a>
+            </div>
+            <div class="footer__col">
+                <a href="#" class="footer__link" data-hover-text="Privacy policy">
+                    <span>Privacy policy</span>
+                </a>
+            </div>
+            <div class="footer__col">
+                <a href="#" class="footer__link" data-hover-text="Deutsche Version">
+                    <span>Deutsche Version</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+			<!-- == // FOOTER ================== -->
+		</div>
+	</div>
+
+	
+</body>
+
+</html>
