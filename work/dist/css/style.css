@@ -2655,7 +2655,7 @@ h2,
 
 h3,
 .title-3 {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 2.2rem;
   line-height: 1.4em;
   margin-bottom: 0;
@@ -2665,7 +2665,7 @@ h3,
 
 h4,
 .title-4 {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 2.4rem;
   line-height: 1.33em;
   margin-bottom: 0;
@@ -2675,7 +2675,7 @@ h4,
 
 h5,
 .title-5 {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 2rem;
   line-height: 1.1em;
   margin-bottom: 0;
@@ -4202,7 +4202,7 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
   position: relative;
   padding: 3.2rem 0;
   color: rgba(24, 32, 57, 0.4);
-  background-color: #fff;
+  background-color: #FCFCFC;
 }
 
 .title-line .title-3 {
@@ -4603,9 +4603,7 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
 
 .text-parallax {
   position: relative;
-  padding: 1rem 0;
   overflow: hidden;
-  height: 100vh;
 }
 
 .text-parallax__cover {
@@ -4625,13 +4623,13 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
   top: 0;
   left: 0;
   width: 100%;
-  height: 15%;
+  height: 30%;
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&1+0,0+100 */
   /* FF3.6-15 */
   /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), to(rgba(255, 255, 255, 0)));
-  background: -o-linear-gradient(top, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
-  background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(#fcfcfc), to(rgba(252, 252, 252, 0)));
+  background: -o-linear-gradient(top, #fcfcfc 0%, rgba(252, 252, 252, 0) 100%);
+  background: linear-gradient(to bottom, #fcfcfc 0%, rgba(252, 252, 252, 0) 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
@@ -4641,35 +4639,37 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 60%;
+  height: 45%;
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0+0,1+100 */
   /* FF3.6-15 */
   /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(rgb(255, 255, 255)));
-  background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 100%);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(252, 252, 252, 0)), to(#fcfcfc));
+  background: -o-linear-gradient(top, rgba(252, 252, 252, 0) 0%, #fcfcfc 100%);
+  background: linear-gradient(to bottom, rgba(252, 252, 252, 0) 0%, #fcfcfc 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 .text-parallax__body {
   position: relative;
   z-index: 1;
-  -webkit-transform: translateY(8rem);
-      -ms-transform: translateY(8rem);
-          transform: translateY(8rem);
+  padding-top: 20vh;
+  padding-bottom: 25vh;
 }
 
 .img-full-width {
-  overflow: hidden;
-  height: 100vh;
+  height: 75vh;
 }
 
 .img-full-width__inner {
+  overflow: hidden;
   top: 0;
-  height: calc(100% + 30rem);
-  -webkit-transform: translateY(0%);
-      -ms-transform: translateY(0%);
-          transform: translateY(0%);
+  height: 100%;
+}
+
+.img-full-width__inner img {
+  height: 140%;
+  top: auto;
+  bottom: 0;
 }
 
 .stats__list {
@@ -7761,11 +7761,13 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
     -webkit-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
+    pointer-events: none;
   }
 
   #smooth-wrapper.sub-menu-open:before {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
   }
 
   .container {
@@ -7928,10 +7930,6 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
     -webkit-box-flex: 0;
         -ms-flex: 0 1 100%;
             flex: 0 1 100%;
-  }
-
-  .img-full-width__inner {
-    height: calc(100% + 15rem);
   }
 
   .stats__list {
