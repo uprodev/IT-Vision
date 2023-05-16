@@ -4182,7 +4182,7 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
 }
 
 .lg-text-section__text strong {
-  font-weight: 650;
+  font-weight: 600;
   color: rgba(3, 4, 7, 0.75);
 }
 
@@ -4196,6 +4196,14 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
 
 .lg-text-section__text--indent-all p {
   text-indent: 16rem;
+}
+
+.lg-text-section--color-light .lg-text-section__text {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.lg-text-section--color-light .lg-text-section__text strong {
+  color: #fff;
 }
 
 .title-line {
@@ -4603,7 +4611,29 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
 
 .text-parallax {
   position: relative;
-  overflow: hidden;
+}
+
+.text-parallax__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  max-height: 100%;
+  z-index: 1 !important;
+  pointer-events: none;
+}
+
+.text-parallax__bg video,
+.text-parallax__bg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 1;
 }
 
 .text-parallax__cover {
@@ -4613,17 +4643,18 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
   width: 100%;
   height: 100vh;
   max-height: 100%;
-  z-index: 2;
+  z-index: 3 !important;
   pointer-events: none;
 }
 
 .text-parallax__cover:after {
   position: absolute;
   content: "";
-  top: 0;
+  top: -2px;
   left: 0;
   width: 100%;
   height: 30%;
+  z-index: 2;
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&1+0,0+100 */
   /* FF3.6-15 */
   /* Chrome10-25,Safari5.1-6 */
@@ -4637,9 +4668,10 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
   position: absolute;
   content: "";
   left: 0;
-  bottom: 0;
+  bottom: -2px;
   width: 100%;
   height: 45%;
+  z-index: 2;
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0+0,1+100 */
   /* FF3.6-15 */
   /* Chrome10-25,Safari5.1-6 */
@@ -4651,7 +4683,7 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
 
 .text-parallax__body {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   padding-top: 20vh;
   padding-bottom: 25vh;
 }
@@ -4666,7 +4698,7 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
   height: 100%;
 }
 
-.img-full-width__inner img {
+.img-full-width__inner img[data-speed] {
   height: 140%;
   top: auto;
   bottom: 0;
@@ -5976,6 +6008,42 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
   min-height: 64rem;
 }
 
+.technologies__list {
+  padding-left: 0;
+  margin-bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 6.4rem;
+}
+
+.technologies__list > li {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 calc(25% - 4.8rem);
+          flex: 0 1 calc(25% - 4.8rem);
+}
+
+.technologies__icon {
+  height: 6.4rem;
+  margin-bottom: 2.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.technologies__icon img,
+.technologies__icon svg {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
 @media (min-width: 768px) {
   .pt-md-10 {
     padding-top: 1rem;
@@ -6261,6 +6329,10 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
     margin-bottom: 10.4rem;
   }
 
+  .mb-md-120 {
+    margin-bottom: 16rem;
+  }
+
   .mb-md-160 {
     margin-bottom: 16rem;
   }
@@ -6532,6 +6604,66 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
 
   .pb-lg-200 {
     padding-bottom: 20rem;
+  }
+
+  .mb-lg-8 {
+    margin-bottom: 8rem;
+  }
+
+  .mb-lg-16 {
+    margin-bottom: 1.6rem;
+  }
+
+  .mb-lg-24 {
+    margin-bottom: 2.4rem;
+  }
+
+  .mb-lg-32 {
+    margin-bottom: 3.2rem;
+  }
+
+  .mb-lg-40 {
+    margin-bottom: 4rem;
+  }
+
+  .mb-lg-48 {
+    margin-bottom: 4.8rem;
+  }
+
+  .mb-lg-56 {
+    margin-bottom: 5.6rem;
+  }
+
+  .mb-lg-64 {
+    margin-bottom: 6.4rem;
+  }
+
+  .mb-lg-72 {
+    margin-bottom: 7.2rem;
+  }
+
+  .mb-lg-80 {
+    margin-bottom: 8rem;
+  }
+
+  .mb-lg-88 {
+    margin-bottom: 8.8rem;
+  }
+
+  .mb-lg-96 {
+    margin-bottom: 9.6rem;
+  }
+
+  .mb-lg-104 {
+    margin-bottom: 10.4rem;
+  }
+
+  .mb-lg-120 {
+    margin-bottom: 16rem;
+  }
+
+  .mb-lg-160 {
+    margin-bottom: 16rem;
   }
 
   .header__logo {
@@ -7744,6 +7876,21 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
     height: 48rem;
     margin-bottom: 4.8rem;
   }
+
+  .technologies__list {
+    gap: 5.6rem;
+  }
+
+  .technologies__list > li {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 calc(25% - 4.2rem);
+            flex: 0 1 calc(25% - 4.2rem);
+  }
+
+  .technologies__icon {
+    height: 4.3rem;
+    margin-bottom: 1.6rem;
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -8018,6 +8165,16 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
 
   .contact-form__messages {
     display: none;
+  }
+
+  .technologies__list {
+    gap: 4.8rem;
+  }
+
+  .technologies__list > li {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 calc(50% - 2.4rem);
+            flex: 0 1 calc(50% - 2.4rem);
   }
 }
 

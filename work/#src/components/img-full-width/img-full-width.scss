@@ -8,14 +8,8 @@
         overflow: hidden;
         top: 0;
         height: 100%;
-        // height: calc(100% + 30rem);
-        // transform: translateY(0%);
 
-        // @media (max-width: $md3+px) {
-        //     height: calc(100% + 15rem);
-        // }
-
-        & img {
+        & img[data-speed] {
             height: 140%;
             top: auto;
             bottom: 0;

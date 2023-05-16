@@ -1,6 +1,26 @@
 .text-parallax {
     position: relative;
-    overflow: hidden;
+
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        max-height: 100%;
+        z-index: 1 !important;
+        pointer-events: none;
+
+        & video, & img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+    }
 
     &__cover {
         position: absolute;
@@ -9,16 +29,17 @@
         width: 100%;
         height: 100vh;
         max-height: 100%;
-        z-index: 2;
+        z-index: 3 !important;
         pointer-events: none;
 
         &:after {
             position: absolute;
             content: "";
-            top: 0;
+            top: -2px;
             left: 0;
             width: 100%;
             height: 30%;
+            z-index: 2;
             /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&1+0,0+100 */
             background: -moz-linear-gradient(
                 top,
@@ -43,9 +64,10 @@
             position: absolute;
             content: "";
             left: 0;
-            bottom: 0;
+            bottom: -2px;
             width: 100%;
             height: 45%;
+            z-index: 2;
             /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0+0,1+100 */
             background: -moz-linear-gradient(
                 top,
@@ -68,7 +90,7 @@
 
     &__body {
         position: relative;
-        z-index: 1;
+        z-index: 2;
         padding-top: 20vh;
         padding-bottom: 25vh;
     }

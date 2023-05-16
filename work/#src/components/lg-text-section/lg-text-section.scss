@@ -31,7 +31,7 @@
         color: $textColorThird;
 
         & strong {
-            font-weight: 650;
+            font-weight: 600;
             color: $textColorSecondary;
         }
         & > *:last-child {
@@ -60,6 +60,16 @@
                 @media (max-width: $md3+px) {
                     text-indent: 4rem;
                 }
+            }
+        }
+    }
+
+    &--color-light {
+        
+        & .lg-text-section__text {
+            color: rgba(255, 255, 255, 0.6);
+            & strong {
+                color: #fff;
             }
         }
     }
