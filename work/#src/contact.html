@@ -462,7 +462,7 @@
                                                     el: field,
                                                     name: field.name,
                                                 }
-                                                if(!formData.get(field.name).length) {
+                                                if(!formData.get(field.name).trim().length) {
                                                     fieldData.isCorrect = false;
                                                     fieldData.errorMessage = formInterface[field.name].errorMessages.empty;
                                                 } else if(!EMAIL_REGEXP.test(formData.get(field.name))) {
@@ -493,7 +493,7 @@
                                                     el: field,
                                                     name: field.name,
                                                 }
-                                                if(!formData.get(field.name).length) {
+                                                if(!formData.get(field.name).trim().length) {
                                                     fieldData.isCorrect = false;
                                                     fieldData.errorMessage = formInterface[field.name].errorMessages.empty;
                                                 } else {

@@ -3,51 +3,24 @@
 
 class SmoothScroll {
 	constructor() {
-
-		
 		this.utils = new Utils();
-
 	}
 
 	init() {
 		gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 		ScrollTrigger.normalizeScroll(true);
-		ScrollSmoother.create({
+		let smoother = ScrollSmoother.create({
 			wrapper: '#smooth-wrapper',
 			content: '#smooth-content',
 			ignoreMobileResize: true,
 			smooth: 2.5,
 			speed: 1.3,
 			effects: true,
-		})
-
-		// if (!this.utils.isMobile()) {
-		// 	this.container = document.querySelector('[data-smooth-scroll-container]');
-
-		// 	this.updatePageHeight();
-
-		// 	if (!this.container) return;
-
-		// 	window.addEventListener('scroll', () => {
-
-		// 		gsap.to(this.container, {
-		// 			duration: 1,
-		// 			y: `-${window.pageYOffset}`,
-		// 		})
-		// 	});
-
-		// 	window.addEventListener('resize', () => this.update());
-		// }
-
-		// if (window.pageYOffset > 0) {
-		// 	setTimeout(() => {
-		// 		ScrollTrigger.refresh();
-		// 	}, 1100);
-		// }
-
+		});
 
 		this.initScrollParallax();
-		// this.initScrollParallax2();
+
+		return smoother;
 	}
 
 	update() {
@@ -92,32 +65,6 @@ class SmoothScroll {
 					});
 				}
 			})
-		}
-	}
-
-	initScrollParallax2() {
-		let scrollParalaxElements = document.querySelectorAll('[data-speed]');
-		if (scrollParalaxElements.length) {
-
-			// scrollParalaxElements.forEach(el => {
-			// 	let speed = Number(el.getAttribute('data-speed'));
-			// 	let lag = Number(el.getAttribute('data-lag'));
-
-			// 	// ScrollTrigger.create({
-			// 	// 	trigger: el,
-			// 	// 	start: 'top 100%',
-			// 	// 	end: 'bottom 0%',
-			// 	// 	onUpdate: (self) => {
-			// 	// 		let value = 100 * ((self.progress - 0.5) * -1) * speed;
-			// 	// 		//console.log('update');
-			// 	// 		gsap.to(el, {
-			// 	// 			y: value,
-			// 	// 			duration: lag ? lag : 0,
-			// 	// 		})
-			// 	// 	}
-			// 	// })
-
-			// })
 		}
 	}
 }
@@ -336,7 +283,7 @@ class App {
 			})
 		}
 
-		this.smoothScroll.init();
+		this.smoother = this.smoothScroll.init();
 	}
 
 	selectInit() {
