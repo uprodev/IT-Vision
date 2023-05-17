@@ -45,6 +45,19 @@
         }
     }
 
+    &__title {
+        position: relative;
+        z-index: 4;
+        color: $textColorLight;
+        padding: 2.4rem 0;
+
+        --border-width: 0.1rem;
+
+        @media (max-width: $md2+px) {
+            padding: 1.6rem 0;
+        }
+    }
+
     &__wrap {
         position: absolute;
         z-index: 3;

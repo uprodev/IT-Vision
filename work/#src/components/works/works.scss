@@ -19,6 +19,17 @@
         &--full-width {
             flex: 0 1 100%;
         }
+
+        &--width-65 {
+            @media (min-width: 768px) {
+                flex: 0 0 65%;
+            }
+        }
+        &--width-35 {
+            @media (min-width: 768px) {
+                flex: 0 0 35%;
+            }
+        }
     }
 
     &__bottom {
@@ -41,36 +52,13 @@
         height: 60rem;
     }
 
-    @media (min-width: 992px) {
-        &:hover {
-            & .work-preview-card__img {
-                opacity: 0;
-            }
-            & .work-preview-card__img-hover {
-                transform: scale(1);
-                opacity: 1;
-            }
-
-            & .work-preview-card__title {
-                &--hover-dark {
-                    color: $textColorSecondary;
-                }
-            }
-
-            & .work-preview-card__label {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 1;
-
-                &::before {
-                    animation-play-state: running;
-                }
-            }
-        }
-    }
-
     &__inner {
         height: 100%;
-        padding-top: 1.6rem;
+        padding-top: 2.4rem;
+
+        @media (max-width: $md2+px) {
+            padding-top: 1.6rem;
+        }
     }
 
     &__text-content {
@@ -198,5 +186,34 @@
 
     &__label-text {
         font-weight: 600;
+    }
+}
+
+a.work-preview-card {
+    @media (min-width: 992px) {
+        &:hover {
+            & .work-preview-card__img {
+                opacity: 0;
+            }
+            & .work-preview-card__img-hover {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            & .work-preview-card__title {
+                &--hover-dark {
+                    color: $textColorSecondary;
+                }
+            }
+
+            & .work-preview-card__label {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+
+                &::before {
+                    animation-play-state: running;
+                }
+            }
+        }
     }
 }

@@ -296,6 +296,7 @@ class App {
 		@@include('../components/work-head/work-head.js');
 		@@include('../components/footer/footer.js');
 		@@include('../components/input-file/input-file.js');
+		@@include('../components/video-banner/video-banner.js');
 	}
 
 	componentsAfterLoad() {
