@@ -47,6 +47,10 @@ body {
 	position: relative;
 	background-color: $bg;
 
+	@media (max-width: $md2+px) {
+		font-size: 1.3rem;
+	}
+
 	&:not(.mobile) {
 		height: 100%;
 		overflow: hidden;
@@ -129,7 +133,8 @@ img {
 	width: auto;
 }
 
-h1, .title-1 {
+h1,
+.title-1 {
 	margin-top: 0;
 	margin-bottom: 0;
 	font-weight: 600;
@@ -228,7 +233,7 @@ figure {
 	@media (max-width: $md3+px) {
 		&:before {
 			position: absolute;
-			content: '';
+			content: "";
 			top: 0;
 			left: 0;
 			width: 100%;
@@ -237,7 +242,7 @@ figure {
 			z-index: 11;
 			opacity: 0;
 			visibility: 0;
-			transition: all .3s ease;
+			transition: all 0.3s ease;
 			pointer-events: none;
 		}
 
@@ -518,7 +523,11 @@ figure {
 .font-weight-700 {
 	font-weight: 700;
 }
-
+.last {
+	& > *:last-child {
+		margin-bottom: 0;
+	}
+}
 // === TEXT CONTETN BLOCK ========================================================================
 .text-content {
 	& h1,
@@ -528,14 +537,18 @@ figure {
 	& h5,
 	& h6 {
 		color: $textColorSecondary;
-		margin-bottom: 0.7em;
+		margin-bottom: 4rem;
+
+		@media (max-width: $md2+px) {
+			margin-bottom: 2.4rem;
+		}
 	}
 
 	& p,
 	& ul,
 	& ol,
 	& figure {
-		margin-bottom: 1.5em;
+		margin-bottom: 2em;
 	}
 
 	& a {
@@ -547,17 +560,42 @@ figure {
 	}
 
 	& ul {
-		padding-left: 3em;
-
-		@media (max-width: $md3+px) {
-			padding-left: 1.5em;
-		}
+		padding-left: 0;
 
 		& > li {
-			list-style: disc;
+			padding-left: 4.8rem;
+			list-style: none;
+			line-height: 1.6em;
+			position: relative;
+
+			@media (max-width: $md2+px) {
+				padding-left: 3.2rem;
+				line-height: 1.8em;
+			}
+
+			&:before {
+				position: absolute;
+				content: "";
+				top: 0.32rem;
+				left: 0;
+				height: 2.4rem;
+				width: 2.4rem;
+				border: 1px solid currentColor;
+				border-radius: 50%;
+
+				@media (max-width: $md2+px) {
+					height: 1.6rem;
+					width: 1.6rem;
+					top: 0.35rem;
+				}
+			}
 
 			&:not(:last-child) {
-				margin-bottom: 0.7em;
+				margin-bottom: 1.6rem;
+
+				@media (max-width: $md2+px) {
+					margin-bottom: 1.1rem;
+				}
 			}
 
 			& > *:last-child {
@@ -567,15 +605,43 @@ figure {
 	}
 
 	& ol {
-		padding-left: 3em;
+		padding-left: 0;
 
-		@media (max-width: $md3+px) {
-			padding-left: 1.5em;
-		}
+		padding-left: 0;
 
 		& > li {
+			padding-left: 4.8rem;
+			list-style: none;
+			line-height: 1.6em;
+			position: relative;
+
+			@media (max-width: $md2+px) {
+				padding-left: 3.2rem;
+				line-height: 1.8em;
+			}
+
+			@for $i from 1 through 100 {
+				&:nth-child(#{$i}) {
+					&:before {
+						position: absolute;
+						top: 0;
+						left: 0;
+						padding: 0 0.75rem;
+						content: "#{$i}";
+
+						@media (max-width: $md2+px) {
+							padding: 0 0.45rem;
+						}
+					}
+				}
+			}
+
 			&:not(:last-child) {
-				margin-bottom: 0.7em;
+				margin-bottom: 1.6rem;
+
+				@media (max-width: $md2+px) {
+					margin-bottom: 1.1rem;
+				}
 			}
 
 			& > *:last-child {
@@ -589,11 +655,12 @@ figure {
 		width: 100%;
 		margin: 8rem 0;
 
-		@media (max-width: $md2+px) {
-			margin: 80px 0;
+		&:first-child {
+			margin-top: 0 !important;
 		}
-		@media (max-width: $md3+px) {
-			margin: 50px 0;
+
+		@media (max-width: $md2+px) {
+			margin: 5.6rem 0;
 		}
 
 		& > img {
@@ -612,6 +679,18 @@ figure {
 		}
 	}
 
+	& .video {
+		margin: 8rem 0;
+
+		&:first-child {
+			margin-top: 0 !important;
+		}
+
+		@media (max-width: $md2+px) {
+			margin: 5.6rem 0;
+		}
+	}
+
 	& video {
 		object-fit: cover;
 		display: block;
@@ -619,13 +698,16 @@ figure {
 		height: 60rem;
 		margin: 8rem 0;
 
+		&:first-child {
+			margin-top: 0 !important;
+		}
+
 		@media (max-width: $md2+px) {
 			height: 500px;
-			margin: 80px 0;
+			margin: 5.6rem 0;
 		}
 		@media (max-width: $md3+px) {
 			height: 380px;
-			margin: 50px 0;
 		}
 	}
 
@@ -635,24 +717,28 @@ figure {
 		height: 60rem;
 		margin: 8rem 0;
 
+		&:first-child {
+			margin-top: 0 !important;
+		}
+
 		@media (max-width: $md2+px) {
 			height: 500px;
-			margin: 80px 0;
+			margin: 5.6rem 0;
 		}
 		@media (max-width: $md3+px) {
 			height: 380px;
-			margin: 50px 0;
 		}
 	}
 
 	& table {
-		margin: 9rem 0;
+		margin: 8rem 0;
+
+		&:first-child {
+			margin-top: 0 !important;
+		}
 
 		@media (max-width: $md2+px) {
-			margin: 80px 0;
-		}
-		@media (max-width: $md3+px) {
-			margin: 50px 0;
+			margin: 5.6rem 0;
 		}
 
 		& + h1,
@@ -665,6 +751,11 @@ figure {
 		}
 	}
 
+	& .quote,
+	& .video,
+	& video,
+	& iframe,
+	& figure,
 	& p,
 	& ul,
 	& ol,
@@ -681,10 +772,85 @@ figure {
 		& ~ h4,
 		& ~ h5,
 		& ~ h6 {
-			margin-top: 1.4em;
+			margin-top: 12rem;
+
+			@media (max-width: $md2+px) {
+				margin-top: 8rem;
+			}
 		}
 	}
 }
+
+.quote {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 4rem;
+
+	@media (max-width: $md2+px) {
+		margin-bottom: 2.4rem;
+	}
+
+	&:before {
+		content: "«";
+	}
+	&:after {
+		content: "»";
+	}
+}
+
+.video {
+	position: relative;
+	&__poster {
+		padding-bottom: 66.666%;
+
+		&:not(:last-child) {
+			margin-bottom: 2.4rem;
+
+			@media (max-width: $md2+px) {
+				margin-bottom: 1.6rem;
+			}
+		}
+	}
+
+	&__description {
+	}
+
+	&__play {
+		position: absolute;
+		z-index: 3;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		height: 9.6rem;
+		width: 9.6rem;
+		border-radius: 50%;
+
+		@media (max-width: $md2+px) {
+			height: 6.4rem;
+			width: 6.4rem;
+		}
+
+		& img, & svg {
+			width: 100%;
+			height: auto;
+
+			& circle {
+				transition: all .3s ease;
+			}
+		}
+
+		@media (min-width: 992px) {
+			&:hover {
+				& circle {
+					fill: #A93726;
+				}
+			}
+		}
+	}
+}
+
+
 // === and TEXT CONTETN BLOCK ========================================================================
 
 .pt-10 {
@@ -1562,6 +1728,9 @@ figure {
 .mb-8 {
 	margin-bottom: 8rem;
 }
+.mb-12 {
+	margin-bottom: 1.2rem;
+}
 .mb-16 {
 	margin-bottom: 1.6rem;
 }
@@ -1856,4 +2025,3 @@ figure {
 		margin-top: 10.4rem;
 	}
 }
-

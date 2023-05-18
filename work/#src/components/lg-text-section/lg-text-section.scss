@@ -11,7 +11,7 @@
 
         & a {
             --border-width: 0.1rem;
-            background: linear-gradient(to bottom, transparent 0%,transparent calc(100% - var(--border-width)), transparent var(--border-width));
+            background: linear-gradient(to bottom, transparent 0%,transparent calc(100% - var(--border-width)), currentColor var(--border-width));
             transition: all .2s ease;
 
             @media (min-width: 992px) {

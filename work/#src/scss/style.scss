@@ -59,6 +59,8 @@
 @import "../components/product-banner/product-banner";
 @import "../components/head-step/head-step";
 @import "../components/video-banner/video-banner";
+@import "../components/tags/tags";
+@import "../components/other-articles/other-articles";
 // ==== // components BLOCKS =====================================================
 
 // ==== PAGES =====================================================
@@ -68,4 +70,6 @@
 @import "pages/about";
 @import "pages/contact";
 @import "pages/ai";
+@import "pages/insights";
+@import "pages/article";
 // ==== AND PAGES =====================================================

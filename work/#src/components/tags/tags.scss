@@ -1,0 +1,9 @@
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+
+    @media (max-width: $md2+px) {
+        gap: 1.2rem;
+    }
+}

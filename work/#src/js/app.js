@@ -127,6 +127,7 @@ class App {
 		@@include('../components/instagram/instagram.js');
 		@@include('../components/reviews/reviews.js');
 		@@include('../components/about-team/about-team.js');
+		@@include('../components/other-articles/other-articles.js');
 	}
 
 

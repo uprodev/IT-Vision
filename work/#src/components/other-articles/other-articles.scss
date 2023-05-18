@@ -1,5 +1,5 @@
-.reviews {
-
+.other-articles {
+    min-width: 0;
     &__title {
         color: $textColorSecondary;
     }
@@ -30,7 +30,7 @@
 
             &:not(.swiper-slide-active) {
                 opacity: 0.2;
-                & .review-card__aughtor::before {
+                & .insight-card::before {
                     width: 0;
                 }
                 @media (min-width: 992px) {
@@ -95,28 +95,13 @@
             display: none;
         }
     }
-}
 
-.review-card {
-
-    &__text {
-        margin-bottom: 4rem;
-
-        @media (max-width: $md2+px) {
-            margin-bottom: 2.4rem;
-        }
-    }
-
-    &__aughtor {
-        display: flex;
-        align-items: center;
-        padding-bottom: 4.8rem;
-        gap: 4rem;
+    & .insight-card {
         position: relative;
+        padding-bottom: 4.8rem;
 
         @media (max-width: $md2+px) {
             padding-bottom: 3.2rem;
-            gap: 2.4rem;
         }
 
         &:before {
@@ -137,29 +122,6 @@
             }
         }
     }
-
-    &__aughtor-letter {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex: 0 0 auto;
-        width: 11rem;
-        height: 11rem;
-        border-radius: 50%;
-        background-color: $mainColor;
-        color: $textColorLight;
-
-        @media (max-width: $md2+px) {
-            width: 7.3rem;
-            height: 7.3rem;
-        }
-    }
-
-    &__aughtor-name {
-        color: $textColorThird;
-
-        & strong {
-            color: $textColorSecondary;
-        }
-    }
 }
+
+

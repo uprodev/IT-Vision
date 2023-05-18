@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IT-Vision</title>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		body.page-loaded ._preload-body {
+			display: none;
+		}
+
+		body.page-is-load ._preload-body:before {
+			display: none;
+		}
+
+		._preload-body {
+			background-color: #fff;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 999;
+		}
+
+		._preload-body:before {
+			position: absolute;
+			content: '';
+			z-index: 999;
+			top: 50%;
+			left: 50%;
+			height: 50px;
+			width: 50px;
+			border-radius: 50%;
+			border: 4px solid #6e6e6e;
+			border-right: 4px solid #fff;
+			-webkit-transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			-webkit-animation: preloadBody 2s linear infinite;
+			animation: preloadBody 2s linear infinite;
+		}
+
+		@-webkit-keyframes preloadBody {
+			from {
+				-webkit-transform: translate(-50%, -50%) rotate(0);
+				transform: translate(-50%, -50%) rotate(0);
+			}
+
+			to {
+				-webkit-transform: translate(-50%, -50%) rotate(360deg);
+				transform: translate(-50%, -50%) rotate(360deg);
+			}
+		}
+
+		@keyframes preloadBody {
+			from {
+				-webkit-transform: translate(-50%, -50%) rotate(0);
+				transform: translate(-50%, -50%) rotate(0);
+			}
+
+			to {
+				-webkit-transform: translate(-50%, -50%) rotate(360deg);
+				transform: translate(-50%, -50%) rotate(360deg);
+			}
+		}
+	</style>
+
+	<script>
+
+		let element = document.querySelector('html');
+		if (element) {
+			const setFontSize = () => {
+				let value = 10 / 1920 * element.clientWidth;
+				element.style.fontSize = value + 'px';
+			}
+
+			setFontSize();
+
+			window.addEventListener('resize', setFontSize);
+		}
+
+	</script>
+
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+<script src="js/vendors.js"></script>
+<script src="js/app.js"></script>
+
+</head>
+
+<body>
+    <div class="_preload-body"></div>
+    <!-- == HEADER ================== -->
+    <header class="header " data-header>
+    <div class="header__body container">
+        <div class="header__logo">
+            <a href="#">
+                <svg width="40" height="17" viewBox="0 0 40 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M19.5127 11.1658L19.6674 6.90988L16.0692 9.19263L15.1406 7.56762L18.9323 5.5944L15.1406 3.62118L16.0692 1.99617L19.6674 4.27892L19.5127 0.0229492H21.3698L21.2151 4.27892L24.8133 1.99617L25.7419 3.62118L21.9502 5.5944L25.7419 7.56762L24.8133 9.19263L21.2151 6.90988L21.3698 11.1658H19.5127Z"
+                        />
+                    <path
+                        d="M0 10.4483V9.21019L11.8393 2.68115V4.57699L2.12798 9.81957L2.22471 9.64546V10.013L2.12798 9.83892L11.8393 15.0815V16.9773L0 10.4483Z"
+                        />
+                    <path
+                        d="M40 10.4483L28.1607 16.9773V15.0815L37.872 9.83892L37.785 10.013V9.64546L37.872 9.81957L28.1607 4.57699V2.68115L40 9.21019V10.4483Z"
+                        />
+                </svg>
+                IT Vision
+            </a>
+        </div>
+        <div class="header__center container-second">
+            <div class="header__nav swiper" data-header-nav data-mobile="false">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <a href="#test" class="header__nav-link active">Work</a>
+                    </li>
+                    <li class="swiper-slide menu-item-has-children">
+                        <a href="#" class="header__nav-link">Products</a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="#" class="sub-menu__link">MVP development</a>
+                            </li>
+                            <li>
+                                <a href="#" class="sub-menu__link">Wow-site</a>
+                            </li>
+                            <li>
+                                <a href="#" class="sub-menu__link">Corporate Website</a>
+                            </li>
+                            <li>
+                                <a href="#" class="sub-menu__link">Ecommerce</a>
+                            </li>
+                            <li>
+                                <a href="#" class="sub-menu__link">UX/UI Design</a>
+                            </li>
+                            <li>
+                                <a href="#" class="sub-menu__link">Corporate Design</a>
+                            </li>
+                            <li>
+                                <a href="#" class="sub-menu__link">Mobile App</a>
+                            </li>
+                            <li>
+                                <a href="#" class="sub-menu__link">Prototype</a>
+                            </li>
+                            <li>
+                                <a href="#" class="sub-menu__link">CRM-system</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="swiper-slide menu-item-has-children">
+                        <a href="#" class="header__nav-link">Services</a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="#" class="sub-menu__link">Software Development</a>
+                            </li>
+                            <li>
+                                <a href="#" class="sub-menu__link">Discovery</a>
+                            </li>
+                            <li>
+                                <a href="#" class="sub-menu__link">UX/UI design</a>
+                            </li>
+                            <li>
+                                <a href="#" class="sub-menu__link">UX/UI Audit</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="#" class="header__nav-link">Methods</a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="#" class="header__nav-link">About</a>
+                    </li>
+                    <li class="swiper-slide">
+                        <a href="#" class="header__nav-link ">Contacts</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="header__language" data-da=".header__body,767.98,1">
+                <div class="header__language-current">DE</div>
+                <ul class="header__language-drop-list">
+                    <li>
+                        <a href="#">EU</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <a href="#" class="header__button">
+            Start a project
+        </a>
+    </div>
+</header>
+    <!-- == // HEADER ================== -->
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <div class="pt-by-header-size"></div>
+            <main class="_page home-page">
+                <div class="parallax-cover-section" data-scroll-parallax-trigger>
+                    <div class="parallax-cover-section__inner" data-scroll-parallax="-15rem,top,0px,bottom,200px"
+                        data-scroll-parallax-mob="-15rem,top,84px,bottom,210px,2"">
+						<section class=" head pt-80 pt-lg-120 pb-104 pb-lg-160">
+                        <div class="head__body container-second">
+                            <div class="mb-12 mb-lg-16">
+                                <div class="lg-text-section">
+                                    <div class="lg-text-section__label">
+                                        24 Apr. 2023
+                                    </div>
+                                    <div
+                                        class="lg-text-section__text lg-text-section__text--indent text-content text-2">
+                                        <p>
+                                            <strong>Case Study: Redesigning a Healthcare App.</strong> An in-depth
+                                            analysis of a recent design project, including the challenges faced and the
+                                            solutions that were implemented to create a user-friendly app for patients
+                                            and healthcare providers.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tags text-4 text-color-third">
+                                <a href="#">#DesignTrends</a>
+                                <a href="#">#Process</a>
+                                <a href="#">#BestPractices</a>
+                            </div>
+                        </div>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="padding-wrap pt-0">
+                    <section class="img-full-width">
+                        <div class="img-full-width__inner ibg">
+                            <img data-speed="auto" src="img/photo/article.jpg" alt="">
+                        </div>
+                    </section>
+                </div>
+
+                <div class="padding-wrap">
+                    <div class="container-second">
+                        <div class="article text-content last">
+                            <h2>Approach</h2>
+                            <p>
+                                It’s late 2016. Many people say conversational UI is the future of web interface. IM
+                                apps, chatbots, text-based UIs or emojis probably have never been more popular. Some
+                                might say it’s just another design fad or that text-based interfaces aren’t anything
+                                new, but frankly — let’s admit it — with the advent of iPhone Messages, Slack or
+                                Facebook Messenger the way we exchange information changed irreversibly. Text messages
+                                have became extremely natural way of communicating these days.
+                            </p>
+                            <p>
+                                So naturally, when a chance arose for The Rectangles to work on a conversational website
+                                for one of our clients, we didn’t hesitate a single second.
+                            </p>
+
+                            <h2>Project objectives</h2>
+                            <p>
+                                Our main tasks in this projects:
+                            </p>
+
+                            <ul>
+                                <li>
+                                    Design a complete set of conversational UI assets
+                                </li>
+                                <li>
+                                    Create a conversation script
+                                </li>
+                                <li>
+                                    Handle most common types of conversational randomness
+                                </li>
+                                <li>
+                                    Convey the brand’s character (also by using company’s brand hero
+                                </li>
+                                <li>
+                                    Raise user (interlocutor) curiosity and liking
+                                </li>
+                                <li>
+                                    Display the company web development skills
+                                </li>
+                            </ul>
+                            <p>
+                                I’ll show you how we did it step by step, but first…
+                            </p>
+
+                            <h2>A bit of theory</h2>
+                            <p>
+                                Let’s start with the basics. I think sometimes it’s important to make a step back for a
+                                short while before diving into more complex matters. In this case it really helped us.
+                                Believe it or not, but reading through all those fundamental definitions opened our eyes
+                                on a few creative solutions and boosted the entire ideation process.
+                            </p>
+                            <p>
+                                And I think you shouldn’t skip this part too.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="padding-wrap">
+                    <div class="container-second">
+                        <div class="box">
+                            <div class="box__bg ibg">
+                                <img src="img/photo/gradient.jpg" alt="">
+                            </div>
+                            <div class="box__body">
+                                <div class="lg-text-section">
+                                    <div class="lg-text-section__label">
+                                        Consulting
+                                    </div>
+                                    <div
+                                        class="lg-text-section__text lg-text-section__text--indent text-content text-2">
+                                        <p>
+                                            Consulting services for your company. We offer turnkey tokenization
+                                            solutions. Focus on your business while we assist in scaling your operations
+                                            with digital assets.
+                                        </p>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn" data-hover-text="Learn more">
+                                    <span>
+                                        Learn more
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="padding-wrap">
+                    <div class="container-second">
+                        <div class="article text-content last">
+                            <h2>The principles of communication</h2>
+                            <p>
+                                There are hundreds of definitions explaining communication. The one below is my hybrid
+                                version of a few I found.
+                            </p>
+
+                            <div class="quote text-1 text-center text-color-third">
+                                <div class="quote__text">
+                                    Communication is a process of sharing meaningful messages
+                                </div>
+                            </div>
+
+                            <p>
+                                The messages (communication in general) can be verbal or non-verbal.
+                            </p>
+
+                            <p>
+                                The most common verbal communication tool is language,which is a set of symbols used to
+                                exchange information in the form of words that can be transformed into meanings.
+                            </p>
+
+                            <p>
+                                Examples: Hello; Thank you; You look great today
+                                Non-verbal, by contrast, refers to any type of communication different from words. It
+                                can be gestures, facial expressions, tone of voice, but also actions or symbols which
+                                have a common social meaning.
+                            </p>
+
+                            <p>
+                                Communication is a process where all the aspects affect one another. It means that
+                                communication is holistic and that the entire process creates a system in which all the
+                                elements (all the messages) work together for the common good.
+                            </p>
+
+                            <p>
+                                These messages are functional which means we use them to obtain desired effects, but
+                                also adaptive — meaning that, depending on the situation, they can be modified and
+                                adjusted in order to achieve better results.
+                            </p>
+
+                            <p>
+                                Finally, the language we use to communicate is based on communication code, which is a
+                                set of principles and meanings. They create the base for interpretation. This
+                                communication codes are also called rules; there are two types of them:
+                            </p>
+
+                            <ol>
+                                <li>
+                                    Constitutive rules: referring to the sense and the meaning of particular words, and how we should interpret them. Also, they tell us how to understand a message in a particular context.
+                                </li>
+                                <li>
+                                    Normative rules: helping to determine a proper reaction based on a given message interpretation. In other words, they tell us what we should and what we should not do (say) in a particular situation.
+                                </li>
+                            </ol>
+
+                            <h2>
+                                The principles of communication
+                            </h2>
+                            <p>
+                                There are hundreds of definitions explaining communication. The one below is my hybrid version of a few I found.
+                            </p>
+
+                            <div class="video">
+                                <div class="video__poster ibg">
+                                    <a href="img/wideo.mp4/CarWiki.mp4" data-fancybox class="video__play">
+                                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="32" cy="32" r="32" fill="#FD1E00" />
+                                            <path opacity="0.75" d="M31 38V27L36 32.5L31 38Z" fill="white" />
+                                        </svg>
+                                    </a>
+                                    <img src="img/photo/video-poster.jpg" alt="">
+                                </div>
+                                <div class="video__description">
+                                    Description of an article
+                                </div>
+
+                            </div>
+
+                            <h2>Approach</h2>
+
+                            <p>
+                                It’s late 2016. Many people say conversational UI is the future of web interface. IM apps, chatbots, text-based UIs or emojis probably have never been more popular. Some might say it’s just another design fad or that text-based interfaces aren’t anything new, but frankly — let’s admit it — with the advent of iPhone Messages, Slack or Facebook Messenger the way we exchange information changed irreversibly. Text messages have became extremely natural way of communicating these days.
+                            </p>
+
+                            <p>
+                                So naturally, when a chance arose for The Rectangles to work on a conversational website for one of our clients, we didn’t hesitate a single second.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pb-32 pb-lg-40"></div>
+
+                <div class="padding-wrap"> 
+                    <section class="other-articles">
+    <div class="container-second">
+        <h3 class="other-articles__title title-3 title-mb-default">Other articles</h3>
+    </div>
+    <div class="other-articles__slider" data-slider="other-articles">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="container-second">
+                        <div class="insight-card">
+                            <div class="insight-card__img ibg">
+                                <img src="img/photo/insight-img-3.jpg" alt="">
+                            </div>
+                            <div class="insight-card__tags tags text-4 text-color-third">
+                                <a href="#">#DesignTrends</a>
+                                <a href="#">#Process</a>
+                                <a href="#">#BestPractices</a>
+                            </div>
+                            <h3 class="insight-card__title title-3">
+                                <a href="#">Design Inspiration: 10 Great Examples of UI/UX Design</a>
+                            </h3>
+                            <div class="insight-card__text text-4 text-color-third">
+                                An in-depth analysis of a recent design project, including the challenges faced and the solutions that were implemented to create a user-friendly app for patients and healthcare providers
+                            </div>
+                            <div class="insight-card__date text-4 text-color-third">
+                                24 Apr. 2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container-second">
+                        <div class="insight-card">
+                            <div class="insight-card__img ibg">
+                                <img src="img/photo/insight-img-1.jpg" alt="">
+                            </div>
+                            <div class="insight-card__tags tags text-4 text-color-third">
+                                <a href="#">#DesignTrends</a>
+                                <a href="#">#Process</a>
+                                <a href="#">#BestPractices</a>
+                            </div>
+                            <h3 class="insight-card__title title-3">
+                                <a href="#">Case Study: Redesigning a Healthcare App</a>
+                            </h3>
+                            <div class="insight-card__text text-4 text-color-third">
+                                An in-depth analysis of a recent design project, including the challenges faced and the solutions that were implemented to create a user-friendly app for patients and healthcare providers
+                            </div>
+                            <div class="insight-card__date text-4 text-color-third">
+                                24 Apr. 2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="container-second">
+                        <div class="insight-card">
+                            <div class="insight-card__img ibg">
+                                <img src="img/photo/insight-img-2.jpg" alt="">
+                            </div>
+                            <div class="insight-card__tags tags text-4 text-color-third">
+                                <a href="#">#DesignTrends</a>
+                                <a href="#">#Process</a>
+                                <a href="#">#BestPractices</a>
+                            </div>
+                            <h3 class="insight-card__title title-3">
+                                <a href="#">Design Inspiration: 10 Great Examples of UI/UX Design</a>
+                            </h3>
+                            <div class="insight-card__text text-4 text-color-third">
+                                An in-depth analysis of a recent design project, including the challenges faced and the solutions that were implemented to create a user-friendly app for patients and healthcare providers
+                            </div>
+                            <div class="insight-card__date text-4 text-color-third">
+                                24 Apr. 2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="other-articles__bottom">
+            <button class="other-articles__btn-next">
+                Next
+                <svg class="first" width="69" height="15" viewBox="0 0 69 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M68.7071 8.20711C69.0976 7.81659 69.0976 7.18342 68.7071 6.7929L62.3431 0.428938C61.9526 0.0384132 61.3195 0.0384132 60.9289 0.428938C60.5384 0.819462 60.5384 1.45263 60.9289 1.84315L66.5858 7.50001L60.9289 13.1569C60.5384 13.5474 60.5384 14.1805 60.9289 14.5711C61.3195 14.9616 61.9526 14.9616 62.3431 14.5711L68.7071 8.20711ZM-8.74228e-08 8.5L68 8.50001L68 6.50001L8.74228e-08 6.5L-8.74228e-08 8.5Z"
+                        fill="currentColor" />
+                </svg>
+                <svg class="second" width="69" height="15" viewBox="0 0 69 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M68.7071 8.20711C69.0976 7.81659 69.0976 7.18342 68.7071 6.7929L62.3431 0.428938C61.9526 0.0384132 61.3195 0.0384132 60.9289 0.428938C60.5384 0.819462 60.5384 1.45263 60.9289 1.84315L66.5858 7.50001L60.9289 13.1569C60.5384 13.5474 60.5384 14.1805 60.9289 14.5711C61.3195 14.9616 61.9526 14.9616 62.3431 14.5711L68.7071 8.20711ZM-8.74228e-08 8.5L68 8.50001L68 6.50001L8.74228e-08 6.5L-8.74228e-08 8.5Z"
+                        fill="currentColor" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</section>
+                </div>
+
+                <div class="padding-wrap">
+                    <section class="title-line title-line--load-fade-in">
+                        <div class="container">
+                            <h3 class="title-3"><strong>Recent works</strong></h3>
+                        </div>
+                    </section>
+                    <section class="works">
+                        <div class="works__list">
+                            <a href="#" class="works__item work-preview-card" data-scroll-parallax-trigger>
+                                <div class="work-preview-card__inner" data-scroll-parallax="15rem,bottom,75%,bottom,25%" data-scroll-parallax-mob="15rem,bottom,75%,bottom,25%">
+                                    <div class="work-preview-card__text-content container">
+                                        <h3 class="work-preview-card__title work-preview-card__title--dark title-3"
+                                            data-hover-text="Drone Harmony"><span>Drone Harmony</span></h3>
+                                    </div>
+                                    <div class="work-preview-card__img ibg">
+                                        <img src="img/photo/work-img-2.jpg" alt="">
+                                    </div>
+                                    <div class="work-preview-card__img-hover ibg">
+                                        <img src="img/photo/work-img-5.jpg" alt="">
+                                    </div>
+                                    <div class="work-preview-card__label">
+                                        <div class="work-preview-card__label-arrow">
+                                            <img src="img/icons/arrot-top-right.svg" alt="">
+                                        </div>
+                                        <div class="work-preview-card__label-text text-4">
+                                            Show
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="works__item work-preview-card" data-scroll-parallax-trigger>
+                                <div class="work-preview-card__inner" data-scroll-parallax="15rem,bottom,75%,bottom,25%" data-scroll-parallax-mob="15rem,bottom,75%,bottom,25%">
+                                    <div class="work-preview-card__text-content container">
+                                        <h3 class="work-preview-card__title work-preview-card__title--dark work-preview-card__title--hover-dark title-3"
+                                            data-hover-text="Binance Pay"><span>Binance Pay</span></h3>
+                                    </div>
+                                    <div class="work-preview-card__img ibg">
+                                        <img src="img/photo/work-img-9.jpg" alt="">
+                                    </div>
+                                    <div class="work-preview-card__img-hover ibg">
+                                        <img src="img/photo/work-img-6.jpg" alt="">
+                                    </div>
+                                    <div class="work-preview-card__label">
+                                        <div class="work-preview-card__label-arrow">
+                                            <img src="img/icons/arrot-top-right.svg" alt="">
+                                        </div>
+                                        <div class="work-preview-card__label-text text-4">
+                                            Show
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="works__bottom">
+                            <a href="#" class="btn" data-hover-text="+ More"><span>+ More</span></a>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="padding-wrap pb-0">
+                    <section class="lets-talk">
+    <div class="lets-talk__bg ibg">
+        <img src="img/photo/lets-talk-2.jpg" alt="">
+    </div>
+    <div class="lets-talk__text text-4 container">
+        Tell us about your project
+    </div>
+    <a href="#" class="lets-talk__link" data-hover-text="Let’s talk">
+        <span>Let’s talk</span>
+    </a>
+</section>
+                </div>
+            </main>
+
+            <!-- == FOOTER ================== -->
+            <footer class="footer">
+    <div class="container">
+        <div class="footer__row-1">
+            <div class="footer__col">
+                <div class="footer__text text-3">
+                    <div class="footer__address">
+                        VisionLink GmbH, <br> Wächlenstrasse 5, 8832 Wollerau
+                    </div>
+                    <a href="#" class="footer__phone">
+                        +41 78 732 21 09,
+                    </a>
+                    <a href="#" class="footer__eamil">hello@it-vision.ch</a>
+                    <a href="#" class="footer__link" data-hover-text="Let’s talk"><span>Let’s talk</span></a>
+                </div>
+            </div>
+            <div class="footer__col">
+                <ul class="footer__list">
+                    <li>
+                        <a href="#" class="footer__link" data-hover-text="Works">
+                            <span>Works</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <ul class="footer__list">
+                    <li>
+                        <a href="#" class="footer__link" data-hover-text="Products">
+                            <span>Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer__link" data-hover-text="Services">
+                            <span>Services</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer__link" data-hover-text="Methods">
+                            <span>Methods</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer__link" data-hover-text="AI">
+                            <span>AI</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <ul class="footer__list">
+                    <li>
+                        <a href="#" class="footer__link" data-hover-text="About">
+                            <span>About</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer__link" data-hover-text="Contacts">
+                            <span>Contacts</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <ul class="footer__list">
+                    <li>
+                        <a href="#" class="footer__link" data-hover-text="Insights">
+                            <span>Insights</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__row-2">
+            <div class="footer__label" data-footer-label>
+                Made with love in Switzerland
+            </div>
+        </div>
+        <div class="footer__row-3 text-4">
+            <div class="footer__col">
+                <div class="footer__copy">©2023 by VisionLink GmbH</div>
+            </div>
+            <div class="footer__col">
+                <ul class="footer__social social">
+                    <li>
+                        <a href="#">
+                            <img src="img/icons/instagram.svg" alt="" class="img-svg">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/icons/linkedin.svg" alt="" class="img-svg">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/icons/be.svg" alt="" class="img-svg">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="img/icons/ball.svg" alt="" class="img-svg">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <a href="#" class="footer__link" data-hover-text="Terms&Conditions">
+                    <span>Terms&Conditions</span>
+                </a>
+            </div>
+            <div class="footer__col">
+                <a href="#" class="footer__link" data-hover-text="Privacy policy">
+                    <span>Privacy policy</span>
+                </a>
+            </div>
+            <div class="footer__col">
+                <a href="#" class="footer__link" data-hover-text="Deutsche Version">
+                    <span>Deutsche Version</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+            <!-- == // FOOTER ================== -->
+        </div>
+    </div>
+
+
+</body>
+
+</html>

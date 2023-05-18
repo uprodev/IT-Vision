@@ -1,8 +1,8 @@
 {
-    let reviewsSlider = document.querySelector('[data-slider="reviews"]');
-    if(reviewsSlider) {
-        let wrapper = reviewsSlider.querySelector('.swiper-wrapper');
-        let sliderData = new Swiper(reviewsSlider.querySelector('.swiper'), {
+    let otherArticlesSlider = document.querySelector('[data-slider="other-articles"]');
+    if(otherArticlesSlider) {
+        let wrapper = otherArticlesSlider.querySelector('.swiper-wrapper');
+        let sliderData = new Swiper(otherArticlesSlider.querySelector('.swiper'), {
             slidesPerView: 'auto',
             spaceBetween: 0,
             speed: 600,
@@ -11,7 +11,7 @@
             loopedSlides: 3,
             slideToClickedSlide: true,
             navigation: {
-                nextEl: reviewsSlider.querySelector('.reviews__btn-next'),
+                nextEl: otherArticlesSlider.querySelector('.other-articles__btn-next'),
             },
             breakpoints: {
                 320: {
