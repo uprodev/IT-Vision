@@ -75,3 +75,33 @@
     }
 
 }
+
+.btn-second {
+    flex: 0 0 auto;
+    border-radius: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 6.4rem;
+    padding: 1.6rem 4rem;
+    color: $textColorLight;
+    font-weight: 600;
+    font-size: 1.7rem;
+    line-height: 1.8em;
+    background-color: $mainColor;
+    transition: all .2s ease !important;
+    cursor: pointer;
+
+    @media (max-width: $md2+px) {
+        font-size: 1.2rem;
+        height: 4.3rem;
+    }
+
+    @media (min-width: 992px) {
+        &:hover {
+            color: $textColorLight !important;
+            background-color: #cc1a02;
+        }
+    }
+}

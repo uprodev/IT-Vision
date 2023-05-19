@@ -1,0 +1,21 @@
+.text-three-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8rem 4.8rem;
+
+    @media (max-width: $md3+px) {
+        gap: 4rem;
+    }
+
+    &__col {
+        flex: 0 1 calc(33.3333333% - (4.8rem * 2) / 3);
+
+        @media (max-width: $md3+px) {
+            flex: 0 1 100%;
+        }
+
+        & > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

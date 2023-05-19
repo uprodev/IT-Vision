@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('_head.html',{
+"title": "IT-Vision"
+})
+
+<body>
+    <div class="_preload-body"></div>
+    <!-- == HEADER ================== -->
+    @@include('components/header/_header.html',{
+    "mod": ""
+    })
+    <!-- == // HEADER ================== -->
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <div class="pt-by-header-size"></div>
+            <main class="_page ">
+                <div class="pt-80 pt-lg-120"></div>
+                <div class="container-second">
+                    <h2 class="mb-64">Popup will appear after 2 minutes if nothing was clicked</h2>
+                    <div class="text-content text-3 text-color-secondary">
+                        <ul>
+                            <li>
+                                <a href="#dont-leave" data-popup="open-popup">Dont't leave</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pb-80 pb-lg-120"></div>
+            </main>
+
+            <!-- == FOOTER ================== -->
+            @@include('components/footer/_footer.html',{})
+            <!-- == // FOOTER ================== -->
+        </div>
+    </div>
+
+
+    @@include('components/popup/_popup-dont-leave.html')
+
+</body>
+
+</html>

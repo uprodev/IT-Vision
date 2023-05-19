@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('_head.html',{
+"title": "IT-Vision"
+})
+
+<body>
+    <div class="_preload-body"></div>
+    <!-- == HEADER ================== -->
+    @@include('components/header/_header.html',{
+    "mod": ""
+    })
+    <!-- == // HEADER ================== -->
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <div class="pt-by-header-size"></div>
+            <main class="_page ">
+                <section class="page-404">
+                    <div class="page-404__bg ibg">
+                        <img src="img/photo/404.jpg" alt="">
+                    </div>
+                    <div class="page-404__body container">
+                        <div class="page-404__text">
+                            Sorry, the page you <br>
+                            are looking for cannot be found.
+                        </div>
+                        <h2 class="page-404__link title-2">
+                            <a href="#" data-hover-text="To main page">
+                                <span>
+                                    To main page
+                                </span>
+                            </a>
+                        </h2>
+                    </div>
+                    <div class="page-404__title">404</div>
+                </section>
+            </main>
+
+            <!-- == FOOTER ================== -->
+            @@include('components/footer/_footer.html',{})
+            <!-- == // FOOTER ================== -->
+        </div>
+    </div>
+
+
+</body>
+
+</html>

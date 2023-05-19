@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('_head.html',{
+"title": "IT-Vision"
+})
+
+<body>
+    <div class="_preload-body"></div>
+    <!-- == HEADER ================== -->
+    @@include('components/header/_header.html',{
+    "mod": ""
+    })
+    <!-- == // HEADER ================== -->
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <div class="pt-by-header-size"></div>
+            <main class="_page start-project-page">
+                <div class="padding-wrap pt-0 relative z-4">
+                    <div class="pt-80 pt-lg-120"></div>
+                    <div class="container-second">
+                        <section class="contact-form" data-contact-form>
+                            <div class="contact-form__main">
+                                <div class="contact-form__head mb-56 mb-md-80">
+                                    <div class="lg-text-section">
+                                        <div class="lg-text-section__label">
+                                            Hey
+                                        </div>
+                                        <div class="lg-text-section__text text-content text-2">
+                                            <p>
+                                                <strong>
+                                                    Tell us all the things
+                                                </strong>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form method="POST" accept-charset="UTF-8" id="contact-form">
+                                    <div class="contact-form__body form">
+                                        <div class="form__top">
+                                            <div class="text-4 font-weigh-600 text-color-secondary mb-16 mb-lg-24">I'm
+                                                interested in...</div>
+                                            <div class="form__checkboxes">
+                                                <label class="checkbox-radio">
+                                                    <input type="checkbox" name="Website">
+                                                    <div class="checkbox-radio__square"></div>
+                                                    <div class="checkbox-radio__text">Website</div>
+                                                </label>
+                                                <label class="checkbox-radio">
+                                                    <input type="checkbox" name="Branding">
+                                                    <div class="checkbox-radio__square"></div>
+                                                    <div class="checkbox-radio__text">Branding</div>
+                                                </label>
+                                                <label class="checkbox-radio">
+                                                    <input type="checkbox" name="App">
+                                                    <div class="checkbox-radio__square"></div>
+                                                    <div class="checkbox-radio__text">App</div>
+                                                </label>
+                                                <label class="checkbox-radio">
+                                                    <input type="checkbox" name="MobileDevelopment">
+                                                    <div class="checkbox-radio__square"></div>
+                                                    <div class="checkbox-radio__text">Mobile development</div>
+                                                </label>
+                                                <label class="checkbox-radio">
+                                                    <input type="checkbox" name="UX/UI_design">
+                                                    <div class="checkbox-radio__square"></div>
+                                                    <div class="checkbox-radio__text">UX/UI design</div>
+                                                </label>
+                                                <label class="checkbox-radio">
+                                                    <input type="checkbox" name="WebDevelopment">
+                                                    <div class="checkbox-radio__square"></div>
+                                                    <div class="checkbox-radio__text">Web development</div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form__items">
+                                            <div class="form__item form__item--half">
+                                                <input type="text" name="name" class="input _required"
+                                                    placeholder="Name:">
+                                            </div>
+                                            <div class="form__item form__item--half">
+                                                <input type="email" name="email" class="input _required"
+                                                    placeholder="Email:">
+                                            </div>
+                                            <div class="form__item">
+                                                <textarea class="textarea _required" name="message"
+                                                    placeholder="Description:"></textarea>
+                                            </div>
+                                            <div class="form__item form__item--half">
+                                                <label class="file-input">
+                                                    <input type="file" name="file" class="_required"
+                                                        accept=".jpg, .pdf, .png">
+                                                    <div class="file-input__text">
+                                                        Upload
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form__bottom">
+                                            <button class="form__button">Get in Touch</button>
+                                            <div class="form__bottom-text text-4 font-weight-500 text-color-third">This
+                                                site is protected by reCAPTCHA and the
+                                                Google Privacy Policy and apply.</div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="contact-form__messages">
+                                </div>
+                            </div>
+                            <div class="contact-form__result-of-submit success d-none">
+                                <div class="contact-form__result-of-submit-img ibg">
+                                    <img src="img/photo/success-img.jpg" alt="">
+                                </div>
+                                <div class="contact-form__result-of-submit-label text-4">Success</div>
+                                <div class="contact-form__result-of-submit-text text-2 font-weight-600">We will reach
+                                    out to you <br> soon!</div>
+                            </div>
+                            <div class="contact-form__result-of-submit unsuccess d-none">
+                                <div class="contact-form__result-of-submit-img ibg">
+                                    <img src="img/photo/oops.jpg" alt="">
+                                </div>
+                                <div class="contact-form__result-of-submit-label text-4">Unsuccess</div>
+                                <div class="contact-form__result-of-submit-text text-2 font-weight-600">Something is
+                                    wrong, <br> please try again later.</div>
+                            </div>
+
+                        </section>
+                        <script>
+                            const formContainer = document.querySelector('[data-contact-form]');
+                            const form = document.querySelector("#contact-form");
+                            const messagesContainer = formContainer.querySelector('.contact-form__messages');
+                            const requiredFields = form.querySelectorAll('._required');
+                            form.addEventListener("submit", formSubmit);
+
+                            const formInterface = {
+                                name: {
+                                    errorMessages: {
+                                        empty: 'Write your name!',
+                                    }
+                                },
+                                email: {
+                                    errorMessages: {
+                                        empty: 'Write your email!',
+                                        invalid: 'Email is misspelled!'
+                                    }
+                                },
+                                message: {
+                                    errorMessages: {
+                                        empty: 'Write your message!',
+                                    }
+                                },
+                                file: {
+                                    errorMessages: {
+                                        empty: 'Upload your file!',
+                                    }
+                                }
+                            }
+
+                            const loader = ((container) => {
+                                let loader = document.createElement('div');
+                                loader.className = 'loader';
+                                loader.insertAdjacentHTML('beforeend', `
+                                        <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+                                    `);
+                                return {
+                                    show: () => {
+                                        formContainer.prepend(loader);
+                                    },
+
+                                    hide: () => {
+                                        loader.remove();
+                                    }
+                                }
+                            })();
+
+                            const validate = (formData, requiredFields) => {
+                                if (requiredFields.length) {
+                                    let result = [];
+                                    requiredFields.forEach(field => {
+                                        if (field.type === 'email') {
+                                            const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+
+                                            let fieldData = {
+                                                el: field,
+                                                name: field.name,
+                                            }
+                                            if (!formData.get(field.name).trim().length) {
+                                                fieldData.isCorrect = false;
+                                                fieldData.errorMessage = formInterface[field.name].errorMessages.empty;
+                                            } else if (!EMAIL_REGEXP.test(formData.get(field.name))) {
+                                                fieldData.isCorrect = false;
+                                                fieldData.errorMessage = formInterface[field.name].errorMessages.invalid;
+                                            } else {
+                                                fieldData.isCorrect = true;
+                                            }
+                                            result.push(fieldData);
+                                        }
+
+                                        if (field.type === 'file') {
+                                            let fieldData = {
+                                                el: field,
+                                                name: field.name,
+                                            }
+                                            if (formData.get(field.name).size === 0) {
+                                                fieldData.isCorrect = false;
+                                                fieldData.errorMessage = formInterface[field.name].errorMessages.empty;
+                                            } else {
+                                                fieldData.isCorrect = true;
+                                            }
+                                            result.push(fieldData);
+                                        }
+
+                                        if (field.type === 'text' || field.type === 'textarea') {
+                                            let fieldData = {
+                                                el: field,
+                                                name: field.name,
+                                            }
+                                            if (!formData.get(field.name).trim().length) {
+                                                fieldData.isCorrect = false;
+                                                fieldData.errorMessage = formInterface[field.name].errorMessages.empty;
+                                            } else {
+                                                fieldData.isCorrect = true;
+                                            }
+                                            result.push(fieldData);
+                                        }
+                                    });
+                                    return { ok: result.every(el => el.isCorrect), result }
+                                }
+                            }
+
+                            const addErrorMessage = (container, fieldData) => {
+                                container.insertAdjacentHTML('beforeend', `
+                                        <div class="contact-form__message text-4" id="${fieldData.name}">
+                                            ${fieldData.errorMessage}
+                                            <button><span></span></button>
+                                        </div>
+                                    `);
+                            }
+
+                            const setErrors = (fieldsData) => {
+                                fieldsData.forEach(fieldData => {
+                                    if (!fieldData.isCorrect) {
+                                        fieldData.el.classList.add('error');
+                                        fieldData.el.parentElement.classList.add('error');
+                                        if (messagesContainer.querySelector(`#${fieldData.name}`)) return;
+                                        addErrorMessage(messagesContainer, fieldData);
+                                    }
+                                })
+                            }
+
+                            const showSuccessScreen = () => {
+                                let mainScreen = formContainer.querySelector('.contact-form__main');
+                                let successScreen = formContainer.querySelector('.contact-form__result-of-submit.success');
+                                mainScreen.classList.add('d-none');
+                                successScreen.classList.remove('d-none');
+                            }
+                            const showUnsuccessScreen = () => {
+                                let mainScreen = formContainer.querySelector('.contact-form__main');
+                                let unsuccessScreen = formContainer.querySelector('.contact-form__result-of-submit.unsuccess');
+                                mainScreen.classList.add('d-none');
+                                unsuccessScreen.classList.remove('d-none');
+                            }
+
+                            function formSubmit(e) {
+                                e.preventDefault();
+                                const formData = new FormData(e.target);
+
+                                let { ok, result } = validate(formData, requiredFields);
+                                if (!ok) {
+                                    setErrors(result);
+                                } else {
+                                    loader.show();
+                                    fetch("https://getform.io/f/f29731c9-0d62-4e29-b516-093bbfc9f419", {
+                                        method: "POST",
+                                        body: formData,
+                                        headers: {
+                                            "Accept": "application/json",
+                                        },
+                                    })
+                                        .then(response => {
+                                            loader.hide();
+                                            if (response.ok) {
+                                                showSuccessScreen();
+                                            } else {
+                                                showUnsuccessScreen();
+                                            }
+                                        })
+                                        .catch(error => {
+                                            loader.show();
+                                            showUnsuccessScreen();
+                                        })
+                                }
+                            }
+
+                            // delete errors
+                            if (requiredFields.length) {
+                                requiredFields.forEach(field => {
+                                    field.addEventListener('focus', (e) => {
+                                        field.classList.remove('error');
+                                        field.parentElement.classList.remove('error');
+                                        let message = messagesContainer.querySelector(`#${field.name}`);
+                                        if (message) {
+                                            message.remove();
+                                        }
+                                    })
+                                })
+                            }
+
+                            messagesContainer.addEventListener('click', (e) => {
+                                if (e.target.closest('button')) {
+                                    let message = e.target.closest('.contact-form__message');
+                                    message.remove();
+                                }
+                            })
+                        </script>
+                    </div>
+                </div>
+
+                <div class="padding-wrap">
+                    @@include('components/reviews/_reviews.html')
+                </div>
+
+                <div class="padding-wrap">
+                    <div class="container-second">
+                        <h2 class="title-2 mb-48 mb-lg-64">What’s next?</h2>
+                        <div class="text-three-columns text-content text-4 text-color-third">
+                            <div class="text-three-columns__col">
+                                <h3>1
+                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M9.25 15.5781L7.64063 13.9844L12.4609 9.16406H0.75V6.83594H12.4609L7.64063 2.02344L9.25 0.421875L16.8281 8L9.25 15.5781Z"
+                                            fill="#030407" fill-opacity="0.75" />
+                                    </svg>
+                                    <br>
+                                    Prompt response
+                                </h3>
+                                <p>
+                                    We are notoriously quick at getting back to emails.
+                                </p>
+                                <p>
+                                    You’ll get a reply within 3 business hours;
+                                </p>
+                            </div>
+                            <div class="text-three-columns__col">
+                                <h3>2 <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M9.25 15.5781L7.64063 13.9844L12.4609 9.16406H0.75V6.83594H12.4609L7.64063 2.02344L9.25 0.421875L16.8281 8L9.25 15.5781Z"
+                                            fill="#030407" fill-opacity="0.75" />
+                                    </svg>
+                                    <br>
+                                    Schedule a call
+                                </h3>
+                                <p>
+                                    Dive into your vision for the project on a quick call
+                                </p>
+                            </div>
+                            <div class="text-three-columns__col">
+                                <h3>3 <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M9.25 15.5781L7.64063 13.9844L12.4609 9.16406H0.75V6.83594H12.4609L7.64063 2.02344L9.25 0.421875L16.8281 8L9.25 15.5781Z"
+                                            fill="#030407" fill-opacity="0.75" />
+                                    </svg>
+                                    <br>
+                                    Get a quote
+                                </h3>
+                                <p>
+                                    A whole team dedicated to calculating the quote will be working on our proposal,
+                                    analysing, calculating and estimating.
+                                </p>
+                                <p>
+                                    You’ll get a full-fledged document from us, fair and square.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="padding-wrap pb-0">
+                    @@include('components/lets-talk/_lets-talk.html', {
+                    "img": "img/photo/lets-talk-2.jpg",
+                    "text": "Let’s talk"
+                    })
+                </div>
+            </main>
+
+            <!-- == FOOTER ================== -->
+            @@include('components/footer/_footer.html',{})
+            <!-- == // FOOTER ================== -->
+        </div>
+    </div>
+
+
+</body>
+
+</html>

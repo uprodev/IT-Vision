@@ -93,6 +93,8 @@ class App {
 				document.body.classList.add('safari');
 			}
 
+			this.smoother = this.smoothScroll.init();
+
 			this.utils.replaceToInlineSvg('.img-svg');
 			this.dynamicAdapt.init();
 			this.headerHandler();
@@ -283,8 +285,6 @@ class App {
 
 			})
 		}
-
-		this.smoother = this.smoothScroll.init();
 	}
 
 	selectInit() {

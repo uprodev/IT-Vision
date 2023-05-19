@@ -6,7 +6,10 @@ const lockPadding = document.querySelectorAll('[data-popup="lock-padding"]');
 
 let unlock = true;
 
-const timeout = 800;
+const timeout = 600;
+
+const smoother = this.smoother;
+
 
 if(popupLinks.length > 0) {
 	for (let index = 0; index < popupLinks.length; index++) {
@@ -46,7 +49,7 @@ function popupOpen(curentPopup) {
 				popupClose(e.target.closest('.popup')); 
 			}
 		});
-
+		smoother.paused(true);
 	}
 }
 
@@ -56,6 +59,8 @@ function popupClose(popupActive, doUnlock = true) {
 		if(doUnlock) {
 			bodyUnlock();
 		}
+
+		smoother.paused(false);
 	}
 }
 
@@ -163,3 +168,49 @@ window.popup = {
 		popupClose(popup);
 	}
 }
+
+
+const ticker = {
+	seconds: 120,
+	currentTick: 0,
+
+	_tick() {
+		let id = setInterval(() => {
+			this.currentTick++
+
+			if (this.currentTick >= this.seconds) {
+				this.currentTick = 0;
+				if (this.cl) {
+					this.cl();
+					clearInterval(id);
+				};
+			}
+		}, 1000)
+	},
+
+	init(cl) {
+		this.cl = cl;
+		this._tick();
+	},
+
+	reset() {
+		this.currentTick = 0;
+	}
+}
+
+ticker.init(() => {window.popup.open('#dont-leave')});
+
+document.addEventListener('keydown', (e) => {
+	ticker.reset();
+});
+
+document.addEventListener('mousemove', (e) => {
+	ticker.reset();
+})
+
+document.addEventListener('click', () => {
+	ticker.reset();
+})
+document.addEventListener('scroll', () => {
+	ticker.reset();
+})

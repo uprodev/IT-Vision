@@ -172,6 +172,11 @@ h3,
 	@media (max-width: $md2+px) {
 		font-size: 1.5rem;
 	}
+
+	& svg {
+		height: 0.8em;
+		width: auto;
+	}
 }
 h4,
 .title-4 {
@@ -209,6 +214,11 @@ figure {
 
 ._page {
 	flex: 1 1 auto;
+	min-height: calc(100vh - 5.5rem);
+
+	@media (max-width: $md2+px) {
+		min-height: calc(100vh - 8.4rem);
+	}
 }
 
 .main-wrapper {
