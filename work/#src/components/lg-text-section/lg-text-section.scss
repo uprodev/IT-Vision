@@ -66,11 +66,15 @@
 
     &--color-light {
         
-        & .lg-text-section__text {
+        & .lg-text-section__text, & .lg-text-section__title-2 {
             color: rgba(255, 255, 255, 0.6);
             & strong {
                 color: #fff;
             }
+        }
+
+        & .lg-text-section__label {
+            color: #fff;
         }
     }
 }

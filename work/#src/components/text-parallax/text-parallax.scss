@@ -94,4 +94,12 @@
         padding-top: 20vh;
         padding-bottom: 25vh;
     }
+
+    &--second {
+        & .text-parallax__cover {
+            &::before, &::after {
+                opacity: 0.8;
+            }
+        }
+    }
 }

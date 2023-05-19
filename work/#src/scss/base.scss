@@ -533,6 +533,41 @@ figure {
 .font-weight-700 {
 	font-weight: 700;
 }
+
+.line-height-100 {
+	line-height: 1em;
+}
+.line-height-110 {
+	line-height: 1.1em;
+}
+.line-height-120 {
+	line-height: 1.2em;
+}
+.line-height-130 {
+	line-height: 1.3em;
+}
+.line-height-140 {
+	line-height: 1.4em;
+}
+.line-height-150 {
+	line-height: 1.5em;
+}
+.line-height-160 {
+	line-height: 1.6em;
+}
+.line-height-170 {
+	line-height: 1.7em;
+}
+.line-height-180 {
+	line-height: 1.8em;
+}
+.line-height-190 {
+	line-height: 1.9em;
+}
+.line-height-200 {
+	line-height: 2em;
+}
+
 .last {
 	& > *:last-child {
 		margin-bottom: 0;
@@ -786,6 +821,26 @@ figure {
 
 			@media (max-width: $md2+px) {
 				margin-top: 8rem;
+			}
+		}
+	}
+
+	&.text-3 {
+		& ol {
+			& > li {
+				line-height: inherit;
+
+				@media (max-width: $md2+px) {
+					line-height: inherit;
+				}
+
+				&:not(:last-child) {
+					margin-bottom: 4rem;
+	
+					@media (max-width: $md2+px) {
+						margin-bottom: 2.4rem;
+					}
+				}
 			}
 		}
 	}
