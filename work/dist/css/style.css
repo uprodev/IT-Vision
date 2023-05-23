@@ -5177,6 +5177,7 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
   -o-transition: all 0.2s ease !important;
   transition: all 0.2s ease !important;
   cursor: pointer;
+  border: 0.2rem solid #FD1E00;
 }
 
 .head__body {
@@ -6434,6 +6435,7 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
   cursor: pointer;
+  border: 0.2rem solid #FD1E00;
 }
 
 .input {
@@ -8638,8 +8640,8 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
   }
 
   .btn-second:hover {
-    color: #ffffff !important;
-    background-color: #cc1a02;
+    color: #FD1E00 !important;
+    background-color: transparent;
   }
 
   .lg-text-section__label a:hover {
@@ -8804,7 +8806,8 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
   }
 
   .form__button:hover {
-    background-color: #cc1a02;
+    background-color: transparent;
+    color: #FD1E00 !important;
   }
 
   .checkbox-radio:hover .checkbox-radio__square {

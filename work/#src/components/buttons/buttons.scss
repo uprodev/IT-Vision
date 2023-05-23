@@ -92,6 +92,7 @@
     background-color: $mainColor;
     transition: all .2s ease !important;
     cursor: pointer;
+    border: 0.2rem solid $mainColor;
 
     @media (max-width: $md2+px) {
         font-size: 1.2rem;
@@ -100,8 +101,8 @@
 
     @media (min-width: 992px) {
         &:hover {
-            color: $textColorLight !important;
-            background-color: #cc1a02;
+            color: $hover !important;
+            background-color: transparent;
         }
     }
 }
