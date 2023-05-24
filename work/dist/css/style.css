@@ -3911,6 +3911,14 @@ figure {
   margin-bottom: 0;
 }
 
+.text-content .box {
+  margin: 16rem 0;
+}
+
+.text-content .box:first-child {
+  margin-top: 0 !important;
+}
+
 .text-content figure {
   display: block;
   width: 100%;
@@ -5115,6 +5123,7 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
   line-height: 1.6em;
   font-weight: 600;
   color: rgba(24, 32, 57, 0.4);
+  text-decoration: none !important;
   --border-width: 0.2rem;
 }
 
@@ -9610,6 +9619,10 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
 
   .text-content ol > li:not(:last-child) {
     margin-bottom: 1.1rem;
+  }
+
+  .text-content .box {
+    margin: 10.4rem 0;
   }
 
   .text-content figure {

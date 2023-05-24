@@ -695,6 +695,18 @@ figure {
 		}
 	}
 
+	& .box {
+		margin: 16rem 0;
+
+		&:first-child {
+			margin-top: 0 !important;
+		}
+
+		@media (max-width: $md2+px) {
+			margin: 10.4rem 0;
+		}
+	}
+
 	& figure {
 		display: block;
 		width: 100%;
