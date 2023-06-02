@@ -95,8 +95,15 @@
         padding-bottom: 25vh;
     }
 
+    &--has-video {
+        & .text-parallax__cover {
+            display: none;
+        }
+    }
+
     &--second {
         & .text-parallax__cover {
+            
             &::before, &::after {
                 opacity: 0.8;
             }

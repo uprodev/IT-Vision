@@ -57,15 +57,14 @@
 
     &__messages {
         position: absolute;
-        top: 100%;
+        top: 50%;
+        transform: translateY(-50%);
         left: 0;
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 3.2rem;
-        padding-top: 1.6rem;
-
         @media (max-width: $md2+px) {
             gap: 1.6rem;
         }

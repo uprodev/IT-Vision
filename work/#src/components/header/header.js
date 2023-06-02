@@ -82,6 +82,7 @@ if (headerEl) {
     if (headerNavEl) {
         let mySwiper;
         let slider = headerNavEl;
+        let activeEl = headerNavEl.querySelector('.header__nav-link.active');
 
         function mobileSlider() {
             if (document.documentElement.clientWidth <= 767.98 && slider.dataset.mobile == 'false') {
@@ -93,7 +94,7 @@ if (headerEl) {
                     //slideToClickedSlide: true,
                     watchOverflow: true,
                     watchSlidesVisibility: true,
-                    initialSlide: Array.from(headerNavEl.firstElementChild.children).indexOf(headerNavEl.querySelector('.header__nav-link.active').closest('.swiper-slide')),
+                    initialSlide: activeEl ? Array.from(headerNavEl.firstElementChild.children).indexOf(activeEl.closest('.swiper-slide')) : 0,
                 });
 
                 slider.dataset.mobile = 'true';

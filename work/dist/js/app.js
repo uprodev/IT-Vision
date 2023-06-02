@@ -360,7 +360,7 @@ class SmoothScroll {
 			wrapper: '#smooth-wrapper',
 			content: '#smooth-content',
 			ignoreMobileResize: true,
-			smooth: 2.5,
+			smooth: 1,
 			speed: 1.3,
 			effects: true,
 		});
@@ -383,28 +383,14 @@ class SmoothScroll {
 		let scrollParalaxElements = document.querySelectorAll('[data-scroll-parallax]');
 		if (scrollParalaxElements.length) {
 			scrollParalaxElements.forEach(el => {
-
-				if (el.dataset.scrollParallaxMob && document.documentElement.clientWidth < 768) {
-					let [value, startEl, startScreen, endEl, endScreen, scrub = true] = el.dataset.scrollParallaxMob.split(',');
-					gsap.to(el, {
-						y: value,
-						duration: 1,
-						scrollTrigger: {
-							trigger: el.closest('[data-scroll-parallax-trigger]'),
-							scrub: typeof scrub == 'boolean' ? scrub : Number(scrub),
-							start: `${startEl} ${startScreen}`,
-							end: `${endEl} ${endScreen}`,
-							//markers: true
-						}
-					});
-				} else {
+				if (!this.utils.isMobile()) {
 					let [value, startEl, startScreen, endEl, endScreen] = el.dataset.scrollParallax.split(',');
 					gsap.to(el, {
 						y: value,
 						duration: 1,
 						scrollTrigger: {
 							trigger: el.closest('[data-scroll-parallax-trigger]'),
-							scrub: 2,
+							scrub: 1,
 							start: `${startEl} ${startScreen}`,
 							end: `${endEl} ${endScreen}`,
 							//markers: true
@@ -548,6 +534,7 @@ if (headerEl) {
     if (headerNavEl) {
         let mySwiper;
         let slider = headerNavEl;
+        let activeEl = headerNavEl.querySelector('.header__nav-link.active');
 
         function mobileSlider() {
             if (document.documentElement.clientWidth <= 767.98 && slider.dataset.mobile == 'false') {
@@ -559,7 +546,7 @@ if (headerEl) {
                     //slideToClickedSlide: true,
                     watchOverflow: true,
                     watchSlidesVisibility: true,
-                    initialSlide: Array.from(headerNavEl.firstElementChild.children).indexOf(headerNavEl.querySelector('.header__nav-link.active').closest('.swiper-slide')),
+                    initialSlide: activeEl ? Array.from(headerNavEl.firstElementChild.children).indexOf(activeEl.closest('.swiper-slide')) : 0,
                 });
 
                 slider.dataset.mobile = 'true';
@@ -1328,6 +1315,7 @@ document.addEventListener('scroll', () => {
             let cover = textParallaxSection.querySelector('.text-parallax__cover');
             let body = textParallaxSection.querySelector('.text-parallax__body');
             let bg = textParallaxSection.querySelector('.text-parallax__bg');
+            let textElements = textParallaxSection.querySelectorAll('.text-parallax__body p');
     
             ScrollTrigger.create({
                 trigger: cover,
@@ -1346,29 +1334,52 @@ document.addEventListener('scroll', () => {
                     pinSpacing: false
                 });
             }
+
+            if(textElements.length) {
+                textElements.forEach(textElement => {
+                    ScrollTrigger.create({
+                        trigger: textElement,
+                        onUpdate: (e) => {
+                            let progress = (e.progress * 2);
+                            let value = progress > 1 ? 2 - progress : progress;
+                            gsap.to(textElement, {
+                                opacity: value,
+                                duration: 0
+                            })
+                        }
+                    });
+                })
+            }
         });
     }
 };
 		{
-    let statsSection = document.querySelector('[data-stats]');
-    if (statsSection) {
-        let numElements = statsSection.querySelectorAll('.stats__num span');
-        if (numElements.length) {
-            numElements.forEach(el => {
-                gsap.from(el, {
-                    textContent: 0,
-                    duration: 0.4,
-                    snap: { textContent: 1 },
-                    stagger: 1,
-                    // onUpdate: textContent.replace(/\B(?=(\d{3})+(?!\d))/g, ","),
-                    scrollTrigger: {
-                        trigger: el,
-                        start: 'top 75%',
-                    }
-                });
-            })
-
-        }
+    let statsSections = document.querySelectorAll('[data-stats]');
+    if (statsSections.length) {
+        statsSections.forEach(statsSection => {
+            let isLoad = statsSection.dataset.stats === 'load' ? true : false;
+            let numElements = statsSection.querySelectorAll('.stats__num');
+            if (numElements.length) {
+                numElements.forEach(el => {
+                    let num = parseInt(el.innerText);
+                    let sign = el.innerText.match(/[^0-9]$/);
+                    el.innerHTML = `<span>${num}</span>${sign ? sign : ''}`;
+                    gsap.from(el.firstElementChild, {
+                        textContent: 0,
+                        duration: isLoad ? 0.8 : 0.4,
+                        snap: { textContent: 1 },
+                        stagger: 1,
+                        delay: isLoad ? 0.8 : 0,
+                        // onUpdate: textContent.replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+                        scrollTrigger: {
+                            trigger: el,
+                            start: 'top 75%',
+                        }
+                    });
+                })
+    
+            }
+        })
     }
 };
 		{
@@ -1482,6 +1493,9 @@ document.addEventListener('scroll', () => {
             }
         }
     }
+};
+		{
+
 };
 	}
 

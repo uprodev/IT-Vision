@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 4.8rem;
-    overflow: hidden;
+    //overflow: hidden;
 
     &__list {
         display: flex;
@@ -28,6 +28,12 @@
         &--width-35 {
             @media (min-width: 768px) {
                 flex: 0 0 35%;
+            }
+        }
+
+        @for $i from 1 through 50 {
+            &:nth-child(#{$i}) {
+                z-index: $i;
             }
         }
     }
@@ -203,6 +209,9 @@ a.work-preview-card {
             & .work-preview-card__title {
                 &--hover-dark {
                     color: $textColorSecondary;
+                }
+                &--hover-light {
+                    color: $textColorLight;
                 }
             }
 

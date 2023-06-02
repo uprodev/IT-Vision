@@ -13,7 +13,7 @@ class SmoothScroll {
 			wrapper: '#smooth-wrapper',
 			content: '#smooth-content',
 			ignoreMobileResize: true,
-			smooth: 2.5,
+			smooth: 1,
 			speed: 1.3,
 			effects: true,
 		});
@@ -36,28 +36,14 @@ class SmoothScroll {
 		let scrollParalaxElements = document.querySelectorAll('[data-scroll-parallax]');
 		if (scrollParalaxElements.length) {
 			scrollParalaxElements.forEach(el => {
-
-				if (el.dataset.scrollParallaxMob && document.documentElement.clientWidth < 768) {
-					let [value, startEl, startScreen, endEl, endScreen, scrub = true] = el.dataset.scrollParallaxMob.split(',');
-					gsap.to(el, {
-						y: value,
-						duration: 1,
-						scrollTrigger: {
-							trigger: el.closest('[data-scroll-parallax-trigger]'),
-							scrub: typeof scrub == 'boolean' ? scrub : Number(scrub),
-							start: `${startEl} ${startScreen}`,
-							end: `${endEl} ${endScreen}`,
-							//markers: true
-						}
-					});
-				} else {
+				if (!this.utils.isMobile()) {
 					let [value, startEl, startScreen, endEl, endScreen] = el.dataset.scrollParallax.split(',');
 					gsap.to(el, {
 						y: value,
 						duration: 1,
 						scrollTrigger: {
 							trigger: el.closest('[data-scroll-parallax-trigger]'),
-							scrub: 2,
+							scrub: 1,
 							start: `${startEl} ${startScreen}`,
 							end: `${endEl} ${endScreen}`,
 							//markers: true
@@ -298,6 +284,7 @@ class App {
 		@@include('../components/footer/footer.js');
 		@@include('../components/input-file/input-file.js');
 		@@include('../components/video-banner/video-banner.js');
+		@@include('../components/works/works.js');
 	}
 
 	componentsAfterLoad() {

@@ -96,8 +96,9 @@
                     <script>
                         function initMap() {
                             map = new google.maps.Map(document.getElementById('map'), {
-                                center: { lat: 47.196689561857276, lng: 8.722947011753662 },
-
+                                center: { lat: 47.19660937103722, lng: 8.722978527709175 },
+                                disableDefaultUI: true,
+                                zoomControl: true,
                                 zoom: 16,
 
                                 styles: [
@@ -326,7 +327,7 @@
                             });
 
                             var marker = new google.maps.Marker({
-                                position: { lat: 47.196689561857276, lng: 8.722947011753662 },
+                                position: { lat: 47.19660937103722, lng: 8.722978527709175 },
                                 map: map,
                                 title: 'IT-Vision',
                                 label: '',
@@ -372,7 +373,7 @@
                                             </div>
                                             <div class="form__item form__item--half">
                                                 <label class="file-input">
-                                                    <input type="file" name="file" class="_required"
+                                                    <input type="file" name="file" class=""
                                                         accept=".jpg, .pdf, .png">
                                                     <div class="file-input__text">
                                                         Upload
@@ -614,7 +615,7 @@
         </div>
     </div>
     <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7Q82l2QjSzJJk1uUW3OzUBGPTlbk8w1g&callback=initMap&libraries=&v=weekly"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7Q82l2QjSzJJk1uUW3OzUBGPTlbk8w1g&language=en&callback=initMap&libraries=&v=weekly"
         defer>
     </script>
 </body>
