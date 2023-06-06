@@ -351,38 +351,66 @@ class DynamicAdapt {
 class SmoothScroll {
 	constructor() {
 		this.utils = new Utils();
+
+		window.pageSmoothScroll = {
+			update: () => {
+				ScrollTrigger.refresh();
+				//ScrollSmoother.refresh();
+				this.initScrollParallax();
+			}
+		};
 	}
 
 	init() {
-		gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-		ScrollTrigger.normalizeScroll(true);
-		let smoother = ScrollSmoother.create({
-			wrapper: '#smooth-wrapper',
-			content: '#smooth-content',
-			ignoreMobileResize: true,
-			smooth: 1,
-			speed: 1.3,
-			effects: true,
-		});
+		gsap.registerPlugin(ScrollTrigger);
 
-		this.initScrollParallax();
+		//gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+		if (!this.utils.isMobile()) {
 
-		return smoother;
-	}
+			const lenis = new Lenis()
 
-	update() {
-		this.updatePageHeight();
-		ScrollTrigger.refresh();
-	}
+			lenis.on('scroll', (e) => {
+				ScrollTrigger.update();
+			})
 
-	updatePageHeight() {
-		document.body.style.height = this.container.clientHeight + 'px';
+			function raf(time) {
+				lenis.raf(time)
+				requestAnimationFrame(raf)
+			}
+
+			requestAnimationFrame(raf)
+
+			gsap.ticker.add((time) => {
+				lenis.raf(time * 1000)
+			})
+
+			// let smoother = ScrollSmoother.create({
+			// 	wrapper: '#smooth-wrapper',
+			// 	content: '#smooth-content',
+			// 	ignoreMobileResize: true,
+			// 	//normalizeScroll: true,
+			// 	smooth: 1,
+			// 	speed: 1.3,
+			// 	effects: true,
+			// });
+
+			this.initScrollParallax();
+
+			//return smoother;
+
+			let parallaxImages = document.querySelectorAll('img[data-speed]');
+			if(parallaxImages.length) {
+				//parallaxImages
+			}
+		}
+
 	}
 
 	initScrollParallax() {
-		let scrollParalaxElements = document.querySelectorAll('[data-scroll-parallax]');
+		let scrollParalaxElements = document.querySelectorAll('[data-scroll-parallax]:not(.handling)');
 		if (scrollParalaxElements.length) {
 			scrollParalaxElements.forEach(el => {
+				el.classList.add('handling');
 				if (!this.utils.isMobile()) {
 					let [value, startEl, startScreen, endEl, endScreen] = el.dataset.scrollParallax.split(',');
 					gsap.to(el, {
@@ -425,6 +453,21 @@ class App {
 			if (this.utils.isSafari()) {
 				document.body.classList.add('safari');
 			}
+
+			{
+    let parallaxCoverSection = document.querySelector('.parallax-cover-section');
+    if(parallaxCoverSection) {
+        let inner = parallaxCoverSection.querySelector('.parallax-cover-section__inner');
+        let firstChild = inner.firstElementChild;
+        if(firstChild) {
+            let attrValue = inner.getAttribute('data-scroll-parallax');
+            if(attrValue) {
+                inner.removeAttribute('data-scroll-parallax');
+                firstChild.setAttribute('data-scroll-parallax', attrValue);
+            }
+        }
+    }
+};
 
 			this.smoother = this.smoothScroll.init();
 
@@ -1477,21 +1520,31 @@ document.addEventListener('scroll', () => {
 
 ;
 		{
-    let videoBanner = document.querySelector('[data-video-banner]');
-    if(videoBanner) {
-        let video = videoBanner.querySelector('video');
-        let playBtn = videoBanner.querySelector('.video-banner__icon-play');
-        if(video) {
-            if(document.documentElement.clientWidth < 768) {
+    let videoBanners = document.querySelectorAll('[data-video-banner]');
+    if(videoBanners.length) {
+        videoBanners.forEach(videoBanner => {
+            let video = videoBanner.querySelector('video');
+            if(video) {
                 video.pause();
-
-                playBtn.addEventListener('click', () => {
-                    playBtn.classList.add('d-none');
-                    video.setAttribute('controls', true);
-                    video.play();
+                ScrollTrigger.create({
+                    trigger: video,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    onEnter: () => {
+                        video.play();
+                    },
+                    onLeave: () => {
+                        video.pause();
+                    },
+                    onEnterBack: () => {
+                        video.play();
+                    },
+                    onLeaveBack: () => {
+                        video.pause();
+                    }
                 })
             }
-        }
+        })
     }
 };
 		{

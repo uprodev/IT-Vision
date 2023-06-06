@@ -9,6 +9,11 @@
         top: 0;
         height: 100%;
 
+    }
+}
+
+body:not(.mobile) {
+    & .img-full-width__inner {
         & img[data-speed] {
             height: 140%;
             top: auto;

@@ -1,18 +1,28 @@
 {
-    let videoBanner = document.querySelector('[data-video-banner]');
-    if(videoBanner) {
-        let video = videoBanner.querySelector('video');
-        let playBtn = videoBanner.querySelector('.video-banner__icon-play');
-        if(video) {
-            if(document.documentElement.clientWidth < 768) {
+    let videoBanners = document.querySelectorAll('[data-video-banner]');
+    if(videoBanners.length) {
+        videoBanners.forEach(videoBanner => {
+            let video = videoBanner.querySelector('video');
+            if(video) {
                 video.pause();
-
-                playBtn.addEventListener('click', () => {
-                    playBtn.classList.add('d-none');
-                    video.setAttribute('controls', true);
-                    video.play();
+                ScrollTrigger.create({
+                    trigger: video,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    onEnter: () => {
+                        video.play();
+                    },
+                    onLeave: () => {
+                        video.pause();
+                    },
+                    onEnterBack: () => {
+                        video.play();
+                    },
+                    onLeaveBack: () => {
+                        video.pause();
+                    }
                 })
             }
-        }
+        })
     }
 }

@@ -68,8 +68,8 @@
         
         & .lg-text-section__text, & .lg-text-section__title-2 {
             color: rgba(255, 255, 255, 0.6);
-            & strong {
-                color: #fff;
+            & span.text-color-dark {
+                color: #fff !important;
             }
         }
 

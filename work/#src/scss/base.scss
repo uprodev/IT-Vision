@@ -53,7 +53,7 @@ body {
 
 	&:not(.mobile) {
 		height: 100%;
-		overflow: hidden;
+		//overflow: hidden;
 		& a:not(.not-hover):hover {
 			color: $hover;
 		}
@@ -451,7 +451,7 @@ figure {
 }
 
 .text-color-dark {
-	color: $textColor !important;
+	color: $textColorSecondary !important;
 }
 
 .text-color-light {
@@ -868,7 +868,7 @@ figure {
 
 				&:not(:last-child) {
 					margin-bottom: 4rem;
-	
+
 					@media (max-width: $md2+px) {
 						margin-bottom: 2.4rem;
 					}
@@ -928,25 +928,25 @@ figure {
 			width: 6.4rem;
 		}
 
-		& img, & svg {
+		& img,
+		& svg {
 			width: 100%;
 			height: auto;
 
 			& circle {
-				transition: all .3s ease;
+				transition: all 0.3s ease;
 			}
 		}
 
 		@media (min-width: 992px) {
 			&:hover {
 				& circle {
-					fill: #A93726;
+					fill: #a93726;
 				}
 			}
 		}
 	}
 }
-
 
 // === and TEXT CONTETN BLOCK ========================================================================
 
@@ -2121,4 +2121,24 @@ figure {
 	@media (min-width: 768px) {
 		margin-top: 10.4rem;
 	}
+}
+
+html.lenis {
+	height: auto;
+}
+
+.lenis.lenis-smooth {
+	scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+	overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+	overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+	pointer-events: none;
 }
