@@ -53,7 +53,18 @@ class SmoothScroll {
 
 			let parallaxImages = document.querySelectorAll('img[data-speed]');
 			if(parallaxImages.length) {
-				//parallaxImages
+				parallaxImages.forEach(parallaxImage => {
+					let parent = parallaxImage.parentElement;
+					gsap.to(parallaxImage, {
+						y: (parallaxImage.offsetHeight - parent.offsetHeight) * 1.5,
+						scrollTrigger: {
+							trigger: parent,
+							scrub: true,
+							start: 'top bottom',
+							end: 'bottom top',
+						}
+					});
+				})
 			}
 		}
 
