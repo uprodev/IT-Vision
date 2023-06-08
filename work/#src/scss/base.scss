@@ -36,9 +36,8 @@ body {
 }
 body {
 	font-family: $mainFontFamily;
-	-ms-text-size-adjust: 100%;
-	-moz-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 	color: $textColor;
 	font-weight: 400;
 	font-size: 1.9rem;
@@ -53,7 +52,6 @@ body {
 
 	&:not(.mobile) {
 		height: 100%;
-		//overflow: hidden;
 		& a:not(.not-hover):hover {
 			color: $hover;
 		}
@@ -255,10 +253,19 @@ figure {
 	width: 100%;
 }
 
+.cb-layout {
+	height: 100%;
+}
+
+.cb-content {
+	height: 100%;
+}
+
 #smooth-wrapper {
 	transition: opacity 0.5s ease-in var(--global-animation-delay);
 	opacity: 0;
 	position: relative;
+	height: 100%;
 
 	@media (max-width: $md3+px) {
 		&:before {
@@ -289,6 +296,7 @@ figure {
 #smooth-content {
 	display: flex;
 	flex-direction: column;
+	height: 100%;
 }
 
 .page-loaded #smooth-wrapper {
@@ -2121,24 +2129,4 @@ figure {
 	@media (min-width: 768px) {
 		margin-top: 10.4rem;
 	}
-}
-
-html.lenis {
-	height: auto;
-}
-
-.lenis.lenis-smooth {
-	scroll-behavior: auto;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-	overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-	overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-	pointer-events: none;
 }

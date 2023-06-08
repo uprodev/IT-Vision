@@ -8,7 +8,6 @@ let unlock = true;
 
 const timeout = 600;
 
-const smoother = this.smoother;
 
 
 if(popupLinks.length > 0) {
@@ -49,7 +48,7 @@ function popupOpen(curentPopup) {
 				popupClose(e.target.closest('.popup')); 
 			}
 		});
-		smoother.paused(true);
+	
 	}
 }
 
@@ -60,7 +59,6 @@ function popupClose(popupActive, doUnlock = true) {
 			bodyUnlock();
 		}
 
-		smoother.paused(false);
 	}
 }
 

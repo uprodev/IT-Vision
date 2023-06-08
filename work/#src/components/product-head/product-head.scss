@@ -48,6 +48,10 @@
             width: 7.2rem;
         }
 
+        @media (max-width: $md3+px) {
+            top: calc(100% + 8rem);
+        }
+
         & svg {
             height: 1rem;
             width: auto;

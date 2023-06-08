@@ -348,6 +348,22 @@ class DynamicAdapt {
 }
 ;
 
+class ScaleSpeedPlugin extends SmoothScrollbar.ScrollbarPlugin {
+	transformDelta(delta) {
+		const { speed } = this.options;
+
+		return {
+			x: delta.x * speed,
+			y: delta.y * speed,
+		};
+	}
+}
+
+ScaleSpeedPlugin.pluginName = 'scaleSpeed';
+ScaleSpeedPlugin.defaultOptions = {
+	speed: 1,
+}
+
 class SmoothScroll {
 	constructor() {
 		this.utils = new Utils();
@@ -355,55 +371,45 @@ class SmoothScroll {
 		window.pageSmoothScroll = {
 			update: () => {
 				ScrollTrigger.refresh();
-				//ScrollSmoother.refresh();
 				this.initScrollParallax();
+
+				let id = setInterval(() => {
+					ScrollTrigger.refresh();
+				}, 20);
+
+				setTimeout(() => {
+					clearInterval(id);
+				}, 200)
 			}
 		};
 	}
 
 	init() {
+
 		gsap.registerPlugin(ScrollTrigger);
 
-		//gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 		if (!this.utils.isMobile()) {
+			SmoothScrollbar.use(ScaleSpeedPlugin);
 
-			const lenis = new Lenis()
-
-			lenis.on('scroll', (e) => {
-				ScrollTrigger.update();
-			})
-
-			function raf(time) {
-				lenis.raf(time)
-				requestAnimationFrame(raf)
-			}
-
-			requestAnimationFrame(raf)
-
-			gsap.ticker.add((time) => {
-				lenis.raf(time * 1000)
-			})
-
-			// let smoother = ScrollSmoother.create({
-			// 	wrapper: '#smooth-wrapper',
-			// 	content: '#smooth-content',
-			// 	ignoreMobileResize: true,
-			// 	//normalizeScroll: true,
-			// 	smooth: 1,
-			// 	speed: 1.3,
-			// 	effects: true,
-			// });
+			// Init smooth scrollbar
+			const view = document.getElementById('smooth-wrapper');
+			const scrollbar = SmoothScrollbar.init(view, {
+				renderByPixels: false,
+				damping: 0.075, plugins: {
+					scaleSpeed: {
+						speed: this.utils.isSafari() ? 1.5 : 1,
+					},
+				},
+			});
 
 			this.initScrollParallax();
 
-			//return smoother;
-
 			let parallaxImages = document.querySelectorAll('img[data-speed]');
-			if(parallaxImages.length) {
+			if (parallaxImages.length) {
 				parallaxImages.forEach(parallaxImage => {
 					let parent = parallaxImage.parentElement;
 					gsap.to(parallaxImage, {
-						y: (parallaxImage.offsetHeight - parent.offsetHeight) * 1.5,
+						y: (parallaxImage.offsetHeight - parent.offsetHeight),
 						scrollTrigger: {
 							trigger: parent,
 							scrub: true,
@@ -413,6 +419,8 @@ class SmoothScroll {
 					});
 				})
 			}
+
+			return scrollbar;
 		}
 
 	}
@@ -635,7 +643,6 @@ let unlock = true;
 
 const timeout = 600;
 
-const smoother = this.smoother;
 
 
 if(popupLinks.length > 0) {
@@ -676,7 +683,7 @@ function popupOpen(curentPopup) {
 				popupClose(e.target.closest('.popup')); 
 			}
 		});
-		smoother.paused(true);
+	
 	}
 }
 
@@ -687,7 +694,6 @@ function popupClose(popupActive, doUnlock = true) {
 			bodyUnlock();
 		}
 
-		smoother.paused(false);
 	}
 }
 
@@ -1533,10 +1539,10 @@ document.addEventListener('scroll', () => {
 		{
     let videoBanners = document.querySelectorAll('[data-video-banner]');
     if(videoBanners.length) {
-        videoBanners.forEach(videoBanner => {
+        videoBanners.forEach(async videoBanner => {
             let video = videoBanner.querySelector('video');
             if(video) {
-                video.pause();
+                await video.pause();
                 ScrollTrigger.create({
                     trigger: video,
                     start: 'top bottom',

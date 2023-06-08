@@ -2534,9 +2534,8 @@ body {
 
 body {
   font-family: "Inter", sans-serif;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   color: rgba(4, 5, 6, 0.55);
   font-weight: 400;
   font-size: 1.9rem;
@@ -2762,12 +2761,21 @@ figure {
   width: 100%;
 }
 
+.cb-layout {
+  height: 100%;
+}
+
+.cb-content {
+  height: 100%;
+}
+
 #smooth-wrapper {
   -webkit-transition: opacity 0.5s ease-in var(--global-animation-delay);
   -o-transition: opacity 0.5s ease-in var(--global-animation-delay);
   transition: opacity 0.5s ease-in var(--global-animation-delay);
   opacity: 0;
   position: relative;
+  height: 100%;
 }
 
 #smooth-content {
@@ -2778,6 +2786,7 @@ figure {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  height: 100%;
 }
 
 .page-loaded #smooth-wrapper {
@@ -4516,27 +4525,6 @@ figure {
 
 .mt-104 {
   margin-top: 10.4rem;
-}
-
-html.lenis {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  -ms-scroll-chaining: none;
-      overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
 }
 
 .header {
@@ -7133,6 +7121,8 @@ body:not(.mobile) .img-full-width__inner img[data-speed] {
   margin: 0 auto;
   width: 100%;
   max-width: 118.4rem;
+  position: relative;
+  z-index: 2;
 }
 
 .video-banner__video-inner {
@@ -7140,6 +7130,7 @@ body:not(.mobile) .img-full-width__inner img[data-speed] {
   overflow: hidden;
   border-radius: 1.6rem;
   padding-bottom: 56.25%;
+  z-index: 2;
 }
 
 .video-banner__video-inner video,
@@ -7149,6 +7140,7 @@ body:not(.mobile) .img-full-width__inner img[data-speed] {
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 2;
 }
 
 .video-banner__video-inner video {
@@ -10999,6 +10991,10 @@ body:not(.mobile) .img-full-width__inner img[data-speed] {
     gap: 1.6rem;
   }
 
+  .product-head__link {
+    top: calc(100% + 8rem);
+  }
+
   .product-head-services__col {
     -webkit-box-flex: 0;
         -ms-flex: 0 1 calc(50% - 2.4rem);
@@ -11015,6 +11011,7 @@ body:not(.mobile) .img-full-width__inner img[data-speed] {
   }
 
   .video-banner__video-inner {
+    overflow: visible;
     border-radius: 0rem;
   }
 

@@ -1,10 +1,10 @@
 {
     let videoBanners = document.querySelectorAll('[data-video-banner]');
     if(videoBanners.length) {
-        videoBanners.forEach(videoBanner => {
+        videoBanners.forEach(async videoBanner => {
             let video = videoBanner.querySelector('video');
             if(video) {
-                video.pause();
+                await video.pause();
                 ScrollTrigger.create({
                     trigger: video,
                     start: 'top bottom',
