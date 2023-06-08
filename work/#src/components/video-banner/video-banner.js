@@ -4,7 +4,7 @@
         videoBanners.forEach(async videoBanner => {
             let video = videoBanner.querySelector('video');
             if(video) {
-                await video.pause();
+                //await video.pause();
                 ScrollTrigger.create({
                     trigger: video,
                     start: 'top bottom',
