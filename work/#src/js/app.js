@@ -140,6 +140,7 @@ class App {
 			this.selectInit();
 			this.spollerInit();
 			this.componentsBeforeLoad();
+			this.cubertoMouseFollower();
 		});
 
 
@@ -334,10 +335,20 @@ class App {
 		@@include('../components/input-file/input-file.js');
 		@@include('../components/video-banner/video-banner.js');
 		@@include('../components/works/works.js');
+		@@include('../components/buttons/buttons.js');
+		@@include('../js/plugins/mouse-magnetic.js');
+
 	}
 
 	componentsAfterLoad() {
 
+	}
+
+
+	cubertoMouseFollower() {
+		// const cursor = new MouseFollower({
+			
+		// });
 	}
 }
 
