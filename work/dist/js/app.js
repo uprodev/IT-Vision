@@ -500,7 +500,6 @@ class App {
 			this.selectInit();
 			this.spollerInit();
 			this.componentsBeforeLoad();
-			this.cubertoMouseFollower();
 		});
 
 
@@ -1542,25 +1541,13 @@ document.addEventListener('scroll', () => {
     if(videoBanners.length) {
         videoBanners.forEach(async videoBanner => {
             let video = videoBanner.querySelector('video');
+            let btnPlay = videoBanner.querySelector('.video-banner__icon-play');
             if(video) {
-                //await video.pause();
-                ScrollTrigger.create({
-                    trigger: video,
-                    start: 'top bottom',
-                    end: 'bottom top',
-                    onEnter: () => {
-                        video.play();
-                    },
-                    onLeave: () => {
-                        video.pause();
-                    },
-                    onEnterBack: () => {
-                        video.play();
-                    },
-                    onLeaveBack: () => {
-                        video.pause();
-                    }
-                })
+                btnPlay.addEventListener('click', () => {
+                    video.setAttribute('controls', true);
+                    video.play();
+                    btnPlay.classList.add('d-none');
+                });
             }
         })
     }
@@ -1568,7 +1555,9 @@ document.addEventListener('scroll', () => {
 		{
 
 };
-		{ 
+
+		if (!this.utils.isMobile()) {
+			{ 
     //data-magnetic data-cursor="-lg"
     let buttons = document.querySelectorAll('.header__logo a, .header__button, [data-hover-text], .social a, .product-head__link, .video-banner__icon-play, .work-preview-card__label, .reviews__btn-next');
     if(buttons.length) {
@@ -1577,14 +1566,13 @@ document.addEventListener('scroll', () => {
 
             const style = getComputedStyle(btn);
             
-            console.log(style.transform);
             if(style.transform === 'none') {
                 btn.setAttribute('data-magnetic', '');
             }
         })
     }
 };
-		/******/ (function(modules) { // webpackBootstrap
+			/******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -18647,6 +18635,7 @@ document.addEventListener('scroll', () => {
     
     /******/ });
     //# sourceMappingURL=bundle.js.map;
+		}
 
 	}
 
@@ -18654,12 +18643,6 @@ document.addEventListener('scroll', () => {
 
 	}
 
-
-	cubertoMouseFollower() {
-		// const cursor = new MouseFollower({
-			
-		// });
-	}
 }
 
 let app = new App(new Utils(), new DynamicAdapt('max'));

@@ -7,7 +7,6 @@
 
             const style = getComputedStyle(btn);
             
-            console.log(style.transform);
             if(style.transform === 'none') {
                 btn.setAttribute('data-magnetic', '');
             }

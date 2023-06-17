@@ -2770,10 +2770,6 @@ figure {
 }
 
 #smooth-wrapper {
-  -webkit-transition: opacity 0.5s ease-in var(--global-animation-delay);
-  -o-transition: opacity 0.5s ease-in var(--global-animation-delay);
-  transition: opacity 0.5s ease-in var(--global-animation-delay);
-  opacity: 0;
   position: relative;
   height: 100%;
 }
@@ -2787,10 +2783,6 @@ figure {
       -ms-flex-direction: column;
           flex-direction: column;
   height: 100%;
-}
-
-.page-loaded #smooth-wrapper {
-  opacity: 1;
 }
 
 .container {
@@ -5477,20 +5469,22 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
 }
 
 .head__body {
-  -webkit-transition: -webkit-transform var(--global-animation-duration) ease-in var(--global-animation-delay);
-  transition: -webkit-transform var(--global-animation-duration) ease-in var(--global-animation-delay);
-  -o-transition: transform var(--global-animation-duration) ease-in var(--global-animation-delay);
-  transition: transform var(--global-animation-duration) ease-in var(--global-animation-delay);
-  transition: transform var(--global-animation-duration) ease-in var(--global-animation-delay), -webkit-transform var(--global-animation-duration) ease-in var(--global-animation-delay);
+  -webkit-transition: opacity var(--global-animation-duration) ease-in var(--global-animation-delay), -webkit-transform var(--global-animation-duration) ease-in var(--global-animation-delay);
+  transition: opacity var(--global-animation-duration) ease-in var(--global-animation-delay), -webkit-transform var(--global-animation-duration) ease-in var(--global-animation-delay);
+  -o-transition: transform var(--global-animation-duration) ease-in var(--global-animation-delay), opacity var(--global-animation-duration) ease-in var(--global-animation-delay);
+  transition: transform var(--global-animation-duration) ease-in var(--global-animation-delay), opacity var(--global-animation-duration) ease-in var(--global-animation-delay);
+  transition: transform var(--global-animation-duration) ease-in var(--global-animation-delay), opacity var(--global-animation-duration) ease-in var(--global-animation-delay), -webkit-transform var(--global-animation-duration) ease-in var(--global-animation-delay);
   -webkit-transform: translateY(5rem);
       -ms-transform: translateY(5rem);
           transform: translateY(5rem);
+  opacity: 0;
 }
 
-.page-loaded .head__body {
+body.page-loaded .head__body {
   -webkit-transform: translateY(0);
       -ms-transform: translateY(0);
           transform: translateY(0);
+  opacity: 1;
 }
 
 .lg-text-section__label {
@@ -5566,17 +5560,18 @@ body.mobile .menu-item-has-children.sub-menu-open .sub-menu {
 }
 
 .title-line--load-fade-in {
-  -webkit-transition: -webkit-transform var(--global-animation-duration) ease-in var(--global-animation-delay);
-  transition: -webkit-transform var(--global-animation-duration) ease-in var(--global-animation-delay);
-  -o-transition: transform var(--global-animation-duration) ease-in var(--global-animation-delay);
-  transition: transform var(--global-animation-duration) ease-in var(--global-animation-delay);
-  transition: transform var(--global-animation-duration) ease-in var(--global-animation-delay), -webkit-transform var(--global-animation-duration) ease-in var(--global-animation-delay);
+  -webkit-transition: opacity var(--global-animation-duration) ease-in var(--global-animation-delay), -webkit-transform var(--global-animation-duration) ease-in var(--global-animation-delay);
+  transition: opacity var(--global-animation-duration) ease-in var(--global-animation-delay), -webkit-transform var(--global-animation-duration) ease-in var(--global-animation-delay);
+  -o-transition: transform var(--global-animation-duration) ease-in var(--global-animation-delay), opacity var(--global-animation-duration) ease-in var(--global-animation-delay);
+  transition: transform var(--global-animation-duration) ease-in var(--global-animation-delay), opacity var(--global-animation-duration) ease-in var(--global-animation-delay);
+  transition: transform var(--global-animation-duration) ease-in var(--global-animation-delay), opacity var(--global-animation-duration) ease-in var(--global-animation-delay), -webkit-transform var(--global-animation-duration) ease-in var(--global-animation-delay);
   -webkit-transform: translateY(5rem);
       -ms-transform: translateY(5rem);
           transform: translateY(5rem);
+  opacity: 0;
 }
 
-.page-loaded .title-line--load-fade-in {
+body.page-loaded .title-line--load-fade-in {
   -webkit-transform: translateY(0);
       -ms-transform: translateY(0);
           transform: translateY(0);

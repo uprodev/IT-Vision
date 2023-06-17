@@ -1,9 +1,11 @@
 .head {
     &__body {
-        transition: transform var(--global-animation-duration) ease-in var(--global-animation-delay);
+        transition: transform var(--global-animation-duration) ease-in var(--global-animation-delay), opacity var(--global-animation-duration) ease-in var(--global-animation-delay);
         transform: translateY(5rem);
+        opacity: 0;
     }
 }
-.page-loaded .head__body {
+body.page-loaded .head__body {
     transform: translateY(0);
+    opacity: 1;
 }

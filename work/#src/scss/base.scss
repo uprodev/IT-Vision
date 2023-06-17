@@ -262,8 +262,6 @@ figure {
 }
 
 #smooth-wrapper {
-	transition: opacity 0.5s ease-in var(--global-animation-delay);
-	opacity: 0;
 	position: relative;
 	height: 100%;
 
@@ -297,10 +295,6 @@ figure {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
-}
-
-.page-loaded #smooth-wrapper {
-	opacity: 1;
 }
 
 .container {
