@@ -5821,6 +5821,11 @@ body.page-loaded .title-line--load-fade-in {
   overflow: hidden;
 }
 
+.work-preview-card .ibg img {
+  position: static;
+  display: block;
+}
+
 .work-preview-card__inner {
   height: 100%;
   padding-top: 2.4rem;
