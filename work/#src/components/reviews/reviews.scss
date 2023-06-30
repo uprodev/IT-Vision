@@ -53,7 +53,7 @@
         font-weight: 600;
         font-size: 3rem;
         line-height: 1.6em;
-        color: $textColorThird;
+        color: #A1A4AE;
         padding: 0.85rem 0 1.7rem;
         transition: color .2s ease-in;
     
@@ -65,31 +65,17 @@
         @media (min-width: 992px) {
             &:hover {
                 color: $hover;
-
-                & svg {
-                    transition: all .2s ease-in;
-                    transform: translateX(100%);
-
-                    &.second {
-                        right: 100%;
-                    }
-                }
             }
         }
 
         & svg {
             position: absolute;
-            width: 100%;
-            height: auto;
+            width: auto;
+            height: 1.4rem;
             bottom: 0;
-            left: 0;
-            
-
-            &.second {
-                left: auto;
-                right: calc(100% + 0.5rem);
-            }
+            right: 0;
         }
+
 
         &.swiper-button-lock {
             display: none;

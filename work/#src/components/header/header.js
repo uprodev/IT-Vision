@@ -44,13 +44,13 @@ if (headerEl) {
                         manuItem.subMenu.classList.remove('sub-menu--open');
                         headerEl.classList.remove('headerEl--not-hide');
                         mainWrapper.classList.remove('sub-menu-open');
-                        this.smoother.paused(false);
+                        document.documentElement.classList.remove('overflow-hidden');
                     } else {
                         manuItem.el.classList.add('sub-menu-open');
                         manuItem.subMenu.classList.add('sub-menu--open');
                         headerEl.classList.add('headerEl--not-hide');
                         mainWrapper.classList.add('sub-menu-open');
-                        this.smoother.paused(true);
+                        document.documentElement.classList.add('overflow-hidden');
                     }
 
                     menuItemsHasChildren.forEach(i => {
@@ -71,7 +71,7 @@ if (headerEl) {
                         i.subMenu.classList.remove('sub-menu--open');
                     });
                     mainWrapper.classList.remove('sub-menu-open');
-                    this.smoother.paused(false);
+                    document.documentElement.classList.remove('overflow-hidden');
                 }
             })
         }

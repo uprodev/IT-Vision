@@ -3,6 +3,10 @@
     flex-direction: column;
     gap: 12rem;
 
+    @media (max-width: $md3+px) {
+        gap: 8rem;
+    }
+
     &__row-1 {
     }
 
@@ -12,5 +16,33 @@
     }
 
     &__row-2 {
+    }
+
+    &--img-contain {
+        & .product-banner__img {
+            @media (max-width: $md2+px) {
+                height: auto;
+                min-height: auto;
+    
+                &.ibg img {
+                    position: static;
+                    height: auto;
+                }
+            }
+        }
+    }
+}
+
+.product-banner--img-contain {
+    & .product-banner__img {
+        @media (max-width: $md2+px) {
+            height: auto;
+            min-height: auto;
+
+            &.ibg img {
+                position: static;
+                height: auto;
+            }
+        }
     }
 }

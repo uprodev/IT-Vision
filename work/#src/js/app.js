@@ -20,21 +20,6 @@ ScaleSpeedPlugin.defaultOptions = {
 class SmoothScroll {
 	constructor() {
 		this.utils = new Utils();
-
-		window.pageSmoothScroll = {
-			update: () => {
-				ScrollTrigger.refresh();
-				this.initScrollParallax();
-
-				let id = setInterval(() => {
-					ScrollTrigger.refresh();
-				}, 20);
-
-				setTimeout(() => {
-					clearInterval(id);
-				}, 200)
-			}
-		};
 	}
 
 	init() {
@@ -50,10 +35,32 @@ class SmoothScroll {
 				renderByPixels: false,
 				damping: 0.075, plugins: {
 					scaleSpeed: {
-						speed: this.utils.isSafari() ? 1.5 : 1,
+						speed: this.utils.isSafari() ? 1.5 : 0.85,
 					},
 				},
 			});
+
+			window.pageSmoothScroll = {
+				listOfUpdateFunctions: [],
+				update: () => {
+					ScrollTrigger.refresh();
+					this.initScrollParallax();
+	
+					let id = setInterval(() => {
+						ScrollTrigger.refresh();
+						scrollbar.update();
+					}, 20);
+	
+					setTimeout(() => {
+						clearInterval(id);
+					}, 200)
+
+					
+					if(window.pageSmoothScroll.listOfUpdateFunctions.length) {
+						window.pageSmoothScroll.listOfUpdateFunctions.forEach(f => f()); 
+					}
+				}
+			};
 
 			this.initScrollParallax();
 
@@ -79,26 +86,26 @@ class SmoothScroll {
 	}
 
 	initScrollParallax() {
-		let scrollParalaxElements = document.querySelectorAll('[data-scroll-parallax]:not(.handling)');
-		if (scrollParalaxElements.length) {
-			scrollParalaxElements.forEach(el => {
-				el.classList.add('handling');
-				if (!this.utils.isMobile()) {
-					let [value, startEl, startScreen, endEl, endScreen] = el.dataset.scrollParallax.split(',');
-					gsap.to(el, {
-						y: value,
-						duration: 1,
-						scrollTrigger: {
-							trigger: el.closest('[data-scroll-parallax-trigger]'),
-							scrub: 1,
-							start: `${startEl} ${startScreen}`,
-							end: `${endEl} ${endScreen}`,
-							//markers: true
-						}
-					});
-				}
-			})
-		}
+		// let scrollParalaxElements = document.querySelectorAll('[data-scroll-parallax]:not(.handling)');
+		// if (scrollParalaxElements.length) {
+		// 	scrollParalaxElements.forEach(el => {
+		// 		el.classList.add('handling');
+		// 		if (!this.utils.isMobile()) {
+		// 			let [value, startEl, startScreen, endEl, endScreen] = el.dataset.scrollParallax.split(',');
+		// 			gsap.to(el, {
+		// 				y: value,
+		// 				duration: 1,
+		// 				scrollTrigger: {
+		// 					trigger: el.closest('[data-scroll-parallax-trigger]'),
+		// 					scrub: 1,
+		// 					start: `${startEl} ${startScreen}`,
+		// 					end: `${endEl} ${endScreen}`,
+		// 					//markers: true
+		// 				}
+		// 			});
+		// 		}
+		// 	})
+		// }
 	}
 }
 
@@ -336,8 +343,8 @@ class App {
 		@@include('../components/works/works.js');
 
 		if (!this.utils.isMobile()) {
-			@@include('../components/buttons/buttons.js');
 			@@include('../js/plugins/mouse-magnetic.js');
+			@@include('../components/buttons/buttons.js');
 		}
 
 	}
